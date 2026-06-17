@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404 - Page Not Found"
+  description="The page you are looking for does not exist on Font Converter Hub. Go back to convert legacy Krutidev fonts to Unicode."
+>
+  <div class="min-h-[70vh] flex items-center justify-center pt-12 pb-24 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 select-none">
+    <div class="max-w-md w-full mx-auto px-4 text-center">
+      <!-- Big Stylized 404 icon -->
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white font-extrabold text-3xl shadow-lg mb-8 animate-pulse">
+        ४०४
+      </div>
+      
+      <h1 class="text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-4">
+        Page Not Found
+      </h1>
+      
+      <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+        हम इस पृष्ठ को नहीं ढूंढ पाए। The page you requested could not be found. It might have been moved or deleted.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="/"
+          class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 rounded-xl shadow-xs transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 active:scale-98 min-h-[44px]"
+        >
+          Go to Homepage
+        </a>
+        <a
+          href="/krutidev-to-unicode"
+          class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-slate-700 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 border border-slate-200/50 dark:border-slate-700/50 rounded-xl transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 active:scale-98 min-h-[44px]"
+        >
+          Krutidev to Unicode
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

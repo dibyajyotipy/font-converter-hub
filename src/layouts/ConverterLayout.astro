@@ -1,0 +1,93 @@
+---
+import Layout from './Layout.astro';
+import Converter from '../components/Converter.astro';
+import HowToUse from '../components/HowToUse.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedTools from '../components/RelatedTools.astro';
+
+import { CONVERTERS } from '../config/converters';
+
+interface Props {
+  converterId: string;
+}
+
+const { converterId } = Astro.props;
+
+// Find the converter info
+const converter = CONVERTERS.find(c => c.id === converterId);
+
+if (!converter) {
+  throw new Error(`Converter configuration for ID "${converterId}" not found in registry.`);
+}
+
+// Generate JSON-LD SoftwareApplication & WebApplication schemas
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": converter.name,
+    "description": converter.description,
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript.",
+    "url": new URL(converter.href, Astro.site || 'https://fontconverterhub.com').href
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": `${converter.name} Tool`,
+    "description": converter.longDescription || converter.description,
+    "url": new URL(converter.href, Astro.site || 'https://fontconverterhub.com').href,
+    "applicationCategory": "Utility",
+    "browserRequirements": "Requires JavaScript."
+  }
+];
+---
+
+<Layout
+  title={converter.name}
+  description={converter.description}
+  schema={schemas}
+>
+  <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 animate-fade-in">
+    <div class="max-w-[1600px] w-[96%] mx-auto px-2 sm:px-4 lg:px-6 space-y-8">
+      
+      <!-- Compact Utility Title -->
+      <div class="text-left select-none max-w-5xl pl-1">
+        <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-none">
+          {converter.name}
+        </h1>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-none">
+          {converter.longDescription || converter.description}
+        </p>
+      </div>
+
+      <!-- Converter Section (Converter first) -->
+      <Converter
+        direction={converter.id}
+        inputPlaceholder={converter.placeholders.input}
+        outputPlaceholder={converter.placeholders.output}
+        swapTarget={converter.swapTarget}
+        examples={converter.examples}
+      />
+
+      <!-- How To Use (How to use second) -->
+      {converter.howTo && converter.howTo.steps && converter.howTo.steps.length > 0 && (
+        <HowToUse
+          title={converter.howTo.title}
+          steps={converter.howTo.steps}
+          type={converter.howTo.type}
+        />
+      )}
+
+      <!-- FAQ Section (FAQ third) -->
+      {converter.faq && converter.faq.length > 0 && (
+        <FAQ items={converter.faq} />
+      )}
+
+      <!-- Related Tools (Related tools fourth) -->
+      <RelatedTools currentPath={converter.href} />
+
+    </div>
+  </div>
+</Layout>

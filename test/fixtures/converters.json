@@ -1,0 +1,195 @@
+{
+  "krutidev-to-unicode": [
+    {
+      "category": "Chhoti i positioning",
+      "cases": [
+        { "input": "fganh", "expected": "हिंदी" },
+        { "input": "fofHkUu", "expected": "विभिन्न" },
+        { "input": "fLFkfr", "expected": "स्थिति" },
+        { "input": "fyfi", "expected": "लिपि" },
+        { "input": "fouez", "expected": "विनम्र" }
+      ]
+    },
+    {
+      "category": "Reph handling",
+      "cases": [
+        { "input": "/keZ", "expected": "धर्म" },
+        { "input": "dk;Z", "expected": "कार्य" },
+        { "input": "iwoZ", "expected": "पूर्व" },
+        { "input": "o\"kkZ", "expected": "वर्षा" },
+        { "input": "ppkZ", "expected": "चर्चा" }
+      ]
+    },
+    {
+      "category": "Half consonants",
+      "cases": [
+        { "input": "dY;k.k", "expected": "कल्याण" },
+        { "input": "vPNk", "expected": "अच्छा" },
+        { "input": "eqEcbZ", "expected": "मुम्बई" },
+        { "input": "lR;kxzgy", "expected": "सत्याग्रहल" }
+      ]
+    },
+    {
+      "category": "Conjuncts",
+      "cases": [
+        { "input": "Kku", "expected": "ज्ञान" },
+        { "input": "i=k", "expected": "पत्रा" },
+        { "input": "N=k", "expected": "छत्र" },
+        { "input": "Nk=k", "expected": "छात्रा" },
+        { "input": "izdk'k", "expected": "प्रकाश" }
+      ]
+    },
+    {
+      "category": "Sanskrit ligatures",
+      "cases": [
+        { "input": "d`frnso", "expected": "कृत्तिदेव" },
+        { "input": "czã", "expected": "ब्रह्म" },
+        { "input": "íZ", "expected": "द्दZ" },
+        { "input": "à", "expected": "ह्न" },
+        { "input": "ºz", "expected": "ह्र" }
+      ]
+    },
+    {
+      "category": "Nukta characters",
+      "cases": [
+        { "input": "d+", "expected": "क़" },
+        { "input": "[+k", "expected": "ख़" },
+        { "input": "x+", "expected": "ग़" },
+        { "input": "t+", "expected": "ज़" },
+        { "input": "M+", "expected": "ड़" },
+        { "input": "<+", "expected": "ढ़" },
+        { "input": "Q+", "expected": "फ़" }
+      ]
+    },
+    {
+      "category": "Numbers",
+      "cases": [
+        { "input": "åƒ„…†‡ˆ‰Š‹", "expected": "०१२३४५६७८९" },
+        { "input": "1234567890", "expected": "1234567890" }
+      ]
+    },
+    {
+      "category": "Punctuation",
+      "cases": [
+        { "input": "A", "expected": "।" },
+        { "input": "-", "expected": "." },
+        { "input": "&", "expected": "-" },
+        { "input": "]", "expected": "," },
+        { "input": "@", "expected": "/" },
+        { "input": "(", "expected": ";" },
+        { "input": "¼½¿À", "expected": "(){}" }
+      ]
+    },
+    {
+      "category": "Mixed content",
+      "cases": [
+        { "input": "fganh text and English text 123", "expected": "हिंदी text and English text 123" },
+        { "input": "d`frnso (Krutidev 010) is legacy.", "expected": "कृत्तिदेव (Krutidev 010) is legacy." }
+      ]
+    },
+    {
+      "category": "Large documents",
+      "cases": [
+        {
+          "input": "fganh gekjh jktHkk\"kk gSA ;g fo\"o dh lcls oSKkfud Hkk\"kkvksa esa ls ,d gSA bldh fyfi nsoukxjh gS tks vRkar Li\"V vkSj oSKkfud gSA\nlsok esa]\nfoHkkxk/;{k egksn;]\n\nfo\"k;% dke dh izxfr ds laca/k esaA\n\negksn;]\nfouez fuosnu gS fd gekjs foHkkx dk dke rsth ls py jgk gSA",
+          "expected": "हिंदी हमारी राजभाषा है। यह विश्व की सबसे वैज्ञानिक भाषाओं में से एक है। इसकी लिपि देवनागरी है जो अत्यंत स्पष्ट और वैज्ञानिक है।\nसेवा में,\nविभागाध्यक्ष महोदय,\n\nविषय: काम की प्रगति के संबंध में।\n\nमहोदय,\nविनम्र निवेदन है कि हमारे विभाग का काम तेजी से चल रहा है।"
+        }
+      ]
+    }
+  ],
+  "unicode-to-krutidev": [
+    {
+      "category": "Chhoti i positioning",
+      "cases": [
+        { "input": "हिंदी", "expected": "fganh" },
+        { "input": "विभिन्न", "expected": "fofHkUu" },
+        { "input": "स्थिति", "expected": "fLFkfr" },
+        { "input": "लिपि", "expected": "fyfi" },
+        { "input": "विनम्र", "expected": "fouez" }
+      ]
+    },
+    {
+      "category": "Reph handling",
+      "cases": [
+        { "input": "धर्म", "expected": "/keZ" },
+        { "input": "कार्य", "expected": "dk;Z" },
+        { "input": "पूर्व", "expected": "iwoZ" },
+        { "input": "वर्षा", "expected": "o\"kkZ" },
+        { "input": "चर्चा", "expected": "ppkZ" }
+      ]
+    },
+    {
+      "category": "Half consonants",
+      "cases": [
+        { "input": "कल्याण", "expected": "dY;k.k" },
+        { "input": "अच्छा", "expected": "vPNk" },
+        { "input": "मुम्बई", "expected": "eqEcbZ" },
+        { "input": "सत्य", "expected": "lR;" }
+      ]
+    },
+    {
+      "category": "Conjuncts",
+      "cases": [
+        { "input": "ज्ञान", "expected": "Kku" },
+        { "input": "छात्रा", "expected": "Nk=k" },
+        { "input": "प्रकाश", "expected": "izdk'k" }
+      ]
+    },
+    {
+      "category": "Sanskrit ligatures",
+      "cases": [
+        { "input": "कृत्तिदेव", "expected": "d`frnso" },
+        { "input": "ब्रह्म", "expected": "czã" },
+        { "input": "ह्न", "expected": "à" },
+        { "input": "ह्र", "expected": "ºz" }
+      ]
+    },
+    {
+      "category": "Nukta characters",
+      "cases": [
+        { "input": "क़", "expected": "d+" },
+        { "input": "ख़", "expected": "[+k" },
+        { "input": "ग़", "expected": "x+" },
+        { "input": "ज़", "expected": "t+" },
+        { "input": "ड़", "expected": "M+" },
+        { "input": "ढ़", "expected": "<+" },
+        { "input": "फ़", "expected": "Q+" }
+      ]
+    },
+    {
+      "category": "Numbers",
+      "cases": [
+        { "input": "०१२३४५६७८९", "expected": "åƒ„…†‡ˆ‰Š‹" },
+        { "input": "1234567890", "expected": "1234567890" }
+      ]
+    },
+    {
+      "category": "Punctuation",
+      "cases": [
+        { "input": "।", "expected": "A" },
+        { "input": ".", "expected": "-" },
+        { "input": "-", "expected": "&" },
+        { "input": ",", "expected": "]" },
+        { "input": "/", "expected": "@" },
+        { "input": ";", "expected": "(" },
+        { "input": "()", "expected": "¼½" }
+      ]
+    },
+    {
+      "category": "Mixed content",
+      "cases": [
+        { "input": "हिंदी text and English text 123", "expected": "fganh text and English text 123" },
+        { "input": "कृत्तिदेव (Krutidev 010) is legacy.", "expected": "d`frnso (Krutidev 010) is legacy." }
+      ]
+    },
+    {
+      "category": "Large documents",
+      "cases": [
+        {
+          "input": "हिंदी हमारी राजभाषा है। यह विश्व की सबसे वैज्ञानिक भाषाओं में से एक है। इसकी लिपि देवनागरी है जो अत्यंत स्पष्ट और वैज्ञानिक है।\nसेवा में,\nविभागाध्यक्ष महोदय,\n\nविषय: काम की प्रगति के संबंध में।\n\nमहोदय,\nविनम्र निवेदन है कि हमारे विभाग का काम तेजी से चल रहा है।",
+          "expected": "fganh gekjh jktHkk\"kk gSA ;g fo\"o dh lcls oSKkfud Hkk\"kkvksa esa ls ,d gSA bldh fyfi nsoukxjh gS tks vRkar Li\"V vkSj oSKkfud gSA\nlsok esa]\nfoHkkxk/;{k egksn;]\n\nfo\"k;% dke dh izxfr ds laca/k esaA\n\negksn;]\nfouez fuosnu gS fd gekjs foHkkx dk dke rsth ls py jgk gSA"
+        }
+      ]
+    }
+  ]
+}

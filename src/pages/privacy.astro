@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Privacy Policy' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy - Font Converter Hub",
+  "description": "Understand how Font Converter Hub handles data. Our conversion tools process text 100% locally in your web browser.",
+  "url": new URL('/privacy', Astro.site || 'https://fontconverterhub.com').href
+};
+---
+
+<Layout
+  title="Privacy Policy"
+  description="Privacy Policy for Font Converter Hub. Read about our 100% client-side text processing, zero data storage, and anonymous analytics."
+  schema={schema}
+>
+  <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbs} />
+
+      <!-- Hero Section -->
+      <div class="text-center mt-6 mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-400 border border-brand-200/10 mb-4">
+          Privacy First
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-4">
+          Privacy Policy
+        </h1>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto">
+          We believe in complete transparency. Our tools are built to protect your data by converting it directly on your device.
+        </p>
+      </div>
+
+      <!-- Content Container -->
+      <div class="border border-slate-200/60 dark:border-slate-800/60 rounded-2xl bg-white dark:bg-slate-900 p-6 sm:p-10 shadow-xs mb-8 space-y-8 text-slate-600 dark:text-slate-300">
+        
+        <!-- Local Conversion -->
+        <section class="space-y-2">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100">
+              100% Local Browser Processing
+            </h2>
+          </div>
+          <p class="text-sm leading-relaxed pl-10">
+            All text conversions (whether converting Krutidev to Unicode or Unicode to Krutidev) are executed entirely on your local computer or mobile device via JavaScript. Your text input and output are never transmitted to, processed by, or stored on any server.
+          </p>
+        </section>
+
+        <!-- No Text Storage -->
+        <section class="space-y-2">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+              <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
+            </div>
+            <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100">
+              Zero Storage of User Inputs
+            </h2>
+          </div>
+          <p class="text-sm leading-relaxed pl-10">
+            We do not log, save, or cache your typed or pasted characters. The moment you close or refresh this tab, the text you were converting is completely erased from your browser's active memory.
+          </p>
+        </section>
+
+        <!-- Cookies -->
+        <section class="space-y-2">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+              <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+              </svg>
+            </div>
+            <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100">
+              Minimal Cookies & Local Storage
+            </h2>
+          </div>
+          <p class="text-sm leading-relaxed pl-10">
+            We do not use advertising, marketing, or tracking cookies. We utilize your browser's local storage (`localStorage`) solely to store user preferences, such as your chosen interface theme (Dark Mode or Light Mode), so that your preference is remembered on your next visit.
+          </p>
+        </section>
+
+        <!-- Anonymous Analytics -->
+        <section class="space-y-2">
+          <div class="flex items-center gap-2 mb-1">
+            <div class="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+              <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
+              </svg>
+            </div>
+            <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100">
+              Anonymous Web Analytics
+            </h2>
+          </div>
+          <p class="text-sm leading-relaxed pl-10">
+            To understand user volume and improve our tools, we may collect basic, anonymous traffic statistics (such as page views, device type, and referring links). This data is aggregated and does not contain personal identifying details, IP addresses, or any content related to your conversion text.
+          </p>
+        </section>
+
+        <!-- Contact info -->
+        <section class="pt-4 border-t border-slate-100 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400 text-center">
+          For any questions regarding this Privacy Policy or data security, please feel free to contact us at 
+          <a href="/contact" class="text-brand-600 dark:text-brand-400 hover:underline">support@fontconverterhub.com</a>.
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+</Layout>

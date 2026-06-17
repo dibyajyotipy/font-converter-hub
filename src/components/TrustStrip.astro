@@ -1,0 +1,22 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 text-[11px] font-bold text-slate-400 dark:text-slate-500 select-none ${className}`}>
+  <span class="flex items-center gap-1">
+    <span class="text-emerald-500 dark:text-emerald-450 font-extrabold text-xs" aria-hidden="true">✓</span> Private
+  </span>
+  <span class="flex items-center gap-1">
+    <span class="text-emerald-500 dark:text-emerald-450 font-extrabold text-xs" aria-hidden="true">✓</span> Browser-Based
+  </span>
+  <span class="flex items-center gap-1">
+    <span class="text-emerald-500 dark:text-emerald-450 font-extrabold text-xs" aria-hidden="true">✓</span> No Upload Required
+  </span>
+  <span class="flex items-center gap-1">
+    <span class="text-emerald-500 dark:text-emerald-450 font-extrabold text-xs" aria-hidden="true">✓</span> Instant Conversion
+  </span>
+</div>

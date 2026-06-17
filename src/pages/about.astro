@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'About' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Font Converter Hub",
+  "description": "Learn about Font Converter Hub, our privacy-first client-side Devanagari font conversion tools, and our mission.",
+  "url": new URL('/about', Astro.site || 'https://fontconverterhub.com').href,
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Font Converter Hub",
+    "url": "https://fontconverterhub.com",
+    "logo": "https://fontconverterhub.com/favicon.svg"
+  }
+};
+---
+
+<Layout
+  title="About Us"
+  description="Learn about Font Converter Hub, our privacy-first browser-based Devanagari font conversion utilities (Krutidev to Unicode and vice versa)."
+  schema={schema}
+>
+  <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbs} />
+
+      <!-- Hero Section -->
+      <div class="text-center mt-6 mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-400 border border-brand-200/10 mb-4">
+          Our Mission
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-4">
+          Bridging the Gap in Hindi Typography
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          Font Converter Hub is a modern, privacy-first utility designed to help typists, publishers, and government professionals transition seamlessly between legacy visual fonts and modern digital standards.
+        </p>
+      </div>
+
+      <!-- Main Content Card -->
+      <div class="border border-slate-200/60 dark:border-slate-800/60 rounded-2xl bg-white dark:bg-slate-900 p-6 sm:p-10 shadow-xs mb-10">
+        
+        <div class="prose dark:prose-invert max-w-none space-y-6 text-slate-600 dark:text-slate-300">
+          <section>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 flex items-center gap-2">
+              <span class="w-1.5 h-6 rounded-xs bg-brand-500"></span>
+              Why Font Converter Hub?
+            </h2>
+            <p class="text-sm leading-relaxed animate-fade-in">
+              For decades, Devanagari typing in India relied heavily on legacy visual typewriter layouts, with <strong>Krutidev 010</strong> being the most prominent. While excellent for offline publishing, Krutidev maps Hindi characters to standard English keyboard keystrokes. Consequently, search engines, mobile phones, and web services cannot read or index this text.
+            </p>
+            <p class="text-sm leading-relaxed mt-3">
+              Standard <strong>Unicode Devanagari</strong> (Mangal font) solves this by encoding each character semantically. Our platform provides the bridge, letting you convert visual typewriter layout text to standard Unicode instantly, or reverse-convert documents to meet legacy government submission formats.
+            </p>
+          </section>
+
+          <section class="pt-4">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 flex items-center gap-2">
+              <span class="w-1.5 h-6 rounded-xs bg-brand-500"></span>
+              100% Browser-Based Security
+            </h2>
+            <p class="text-sm leading-relaxed">
+              Unlike traditional conversion utilities that send your documents to a remote server, Font Converter Hub operates entirely in your web browser. 
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800/60 text-center">
+                <div class="text-brand-500 dark:text-brand-400 font-bold text-lg mb-1">Local Only</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400">Zero data leaves your machine. Calculations happen client-side.</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800/60 text-center">
+                <div class="text-brand-500 dark:text-brand-400 font-bold text-lg mb-1">Offline Ready</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400">Works perfectly without an internet connection once loaded.</div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800/60 text-center">
+                <div class="text-brand-500 dark:text-brand-400 font-bold text-lg mb-1">Fast & Free</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400">Optimized JS mappings provide instantaneous, lag-free translation.</div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+
+      <!-- Supported Tools -->
+      <div>
+        <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6 text-center">
+          Supported Utilities
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="/krutidev-to-unicode" class="group flex flex-col p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 hover:border-brand-500 dark:hover:border-brand-400/50 shadow-xs hover:shadow-md transition-all">
+            <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mb-1">Krutidev to Unicode →</span>
+            <span class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400">Convert visual typewriter fonts to standard digital Devanagari.</span>
+          </a>
+          <a href="/unicode-to-krutidev" class="group flex flex-col p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 hover:border-brand-500 dark:hover:border-brand-400/50 shadow-xs hover:shadow-md transition-all">
+            <span class="text-xs font-semibold text-brand-600 dark:text-brand-400 mb-1">Unicode to Krutidev →</span>
+            <span class="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-600 dark:group-hover:text-brand-400">Generate Remington layouts to use in MS Word/DTP software.</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
