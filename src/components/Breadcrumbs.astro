@@ -4,18 +4,6 @@ interface Props {
 }
 
 const { items } = Astro.props;
-
-// Generate JSON-LD BreadcrumbList Schema dynamically
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": items.map((item, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "name": item.name,
-    "item": new URL(item.href || Astro.url.pathname, Astro.site || 'https://fontconverterhub.com').href
-  }))
-};
 ---
 
 <nav aria-label="Breadcrumb" class="w-full max-w-5xl mx-auto my-4 px-2 select-none">
@@ -40,5 +28,4 @@ const schema = {
       </li>
     ))}
   </ol>
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
 </nav>

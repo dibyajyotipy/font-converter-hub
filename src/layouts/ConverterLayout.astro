@@ -9,9 +9,10 @@ import { CONVERTERS } from '../config/converters';
 
 interface Props {
   converterId: string;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
-const { converterId } = Astro.props;
+const { converterId, schema } = Astro.props;
 
 // Find the converter info
 const converter = CONVERTERS.find(c => c.id === converterId);
@@ -21,7 +22,7 @@ if (!converter) {
 }
 
 // Generate JSON-LD SoftwareApplication & WebApplication schemas
-const schemas = [
+const defaultSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -47,11 +48,20 @@ const schemas = [
 <Layout
   title={converter.name}
   description={converter.description}
-  schema={schemas}
+  schema={schema || defaultSchemas}
 >
   <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 animate-fade-in">
     <div class="max-w-[1600px] w-[96%] mx-auto px-2 sm:px-4 lg:px-6 space-y-8">
       
+      <!-- Converter Section (Converter first) -->
+      <Converter
+        direction={converter.id}
+        inputPlaceholder={converter.placeholders.input}
+        outputPlaceholder={converter.placeholders.output}
+        swapTarget={converter.swapTarget}
+        examples={converter.examples}
+      />
+
       <!-- Compact Utility Title -->
       <div class="text-left select-none max-w-5xl pl-1">
         <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-none">
@@ -61,15 +71,6 @@ const schemas = [
           {converter.longDescription || converter.description}
         </p>
       </div>
-
-      <!-- Converter Section (Converter first) -->
-      <Converter
-        direction={converter.id}
-        inputPlaceholder={converter.placeholders.input}
-        outputPlaceholder={converter.placeholders.output}
-        swapTarget={converter.swapTarget}
-        examples={converter.examples}
-      />
 
       <!-- How To Use (How to use second) -->
       {converter.howTo && converter.howTo.steps && converter.howTo.steps.length > 0 && (
