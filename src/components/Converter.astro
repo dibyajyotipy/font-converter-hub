@@ -78,11 +78,11 @@ const outputId = `converter-output-${idSuffix}`;
         <textarea
           id={inputId}
           placeholder={inputPlaceholder}
-          class="converter-input w-full h-[240px] md:h-[300px] pt-3 px-4 pb-8 text-slate-800 dark:text-slate-200 bg-transparent border-0 focus:outline-hidden focus:ring-0 resize-y font-sans text-base leading-relaxed"
+          class="converter-input w-full h-[210px] md:h-[260px] pt-3 px-4 pb-3 text-slate-800 dark:text-slate-200 bg-transparent border-0 focus:outline-hidden focus:ring-0 resize-none font-sans text-base leading-relaxed"
         ></textarea>
         
-        <!-- Embedded Input Stats Overlay -->
-        <div class="absolute bottom-2.5 left-4 flex gap-3 font-mono font-bold select-none text-[10px] text-slate-400/80 dark:text-slate-500/80 pointer-events-none">
+        <!-- Input Stats Bar -->
+        <div class="px-4 py-2 border-t border-slate-200/80 dark:border-slate-800/80 flex gap-3 font-mono font-bold select-none text-[10px] text-slate-400/80 dark:text-slate-500/80">
           <span>CHARS: <span class="input-char-count text-slate-500 dark:text-slate-400">0</span></span>
           <span>WORDS: <span class="input-word-count text-slate-500 dark:text-slate-400">0</span></span>
         </div>
@@ -103,11 +103,11 @@ const outputId = `converter-output-${idSuffix}`;
           id={outputId}
           readonly
           placeholder={outputPlaceholder}
-          class="converter-output w-full h-[240px] md:h-[300px] pt-3 px-4 pb-8 text-slate-800 dark:text-slate-200 bg-transparent border-0 focus:outline-hidden focus:ring-0 resize-y font-sans text-base leading-relaxed cursor-not-allowed"
+          class="converter-output w-full h-[210px] md:h-[260px] pt-3 px-4 pb-3 text-slate-800 dark:text-slate-200 bg-transparent border-0 focus:outline-hidden focus:ring-0 resize-none font-sans text-base leading-relaxed cursor-not-allowed"
         ></textarea>
         
-        <!-- Embedded Output Stats Overlay -->
-        <div class="absolute bottom-2.5 left-4 flex gap-3 font-mono font-bold select-none text-[10px] text-slate-400/80 dark:text-slate-500/80 pointer-events-none">
+        <!-- Output Stats Bar -->
+        <div class="px-4 py-2 border-t border-slate-200/80 dark:border-slate-800/80 flex gap-3 font-mono font-bold select-none text-[10px] text-slate-400/80 dark:text-slate-500/80">
           <span>CHARS: <span class="output-char-count text-slate-500 dark:text-slate-400">0</span></span>
           <span>WORDS: <span class="output-word-count text-slate-500 dark:text-slate-400">0</span></span>
         </div>
@@ -138,7 +138,7 @@ const outputId = `converter-output-${idSuffix}`;
       </div>
       
       <!-- Right actions (Secondary & Primary) -->
-      <div class="flex items-center gap-2 w-full sm:w-auto">
+      <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
         <button
           type="button"
           disabled
@@ -148,6 +148,36 @@ const outputId = `converter-output-${idSuffix}`;
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
           Download TXT
+        </button>
+        <button
+          type="button"
+          disabled
+          class="btn-docx flex-1 sm:flex-none px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-250 hover:text-slate-900 dark:hover:text-white bg-white hover:bg-slate-50 dark:bg-slate-850 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-805/80 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px] focus:outline-hidden focus:ring-2 focus:ring-brand-500 active:scale-98 opacity-50 cursor-not-allowed pointer-events-none shadow-2xs"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Word
+        </button>
+        <button
+          type="button"
+          disabled
+          class="btn-whatsapp flex-1 sm:flex-none px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-250 hover:text-slate-900 dark:hover:text-white bg-white hover:bg-slate-50 dark:bg-slate-850 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-805/80 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px] focus:outline-hidden focus:ring-2 focus:ring-brand-500 active:scale-98 opacity-50 cursor-not-allowed pointer-events-none shadow-2xs"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          WhatsApp
+        </button>
+        <button
+          type="button"
+          disabled
+          class="btn-email flex-1 sm:flex-none px-4 py-2 text-xs font-semibold text-slate-700 dark:text-slate-250 hover:text-slate-900 dark:hover:text-white bg-white hover:bg-slate-50 dark:bg-slate-850 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-805/80 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1.5 min-h-[44px] focus:outline-hidden focus:ring-2 focus:ring-brand-500 active:scale-98 opacity-50 cursor-not-allowed pointer-events-none shadow-2xs"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Email
         </button>
         <button
           type="button"
@@ -176,6 +206,7 @@ const outputId = `converter-output-${idSuffix}`;
 
 <script>
   import { CONVERSION_FUNCTIONS } from '../utils/conversionRegistry';
+  import { Document, Packer, Paragraph, TextRun } from 'docx';
 
   const initConverters = () => {
     const containers = document.querySelectorAll('.font-converter-container');
@@ -208,6 +239,9 @@ const outputId = `converter-output-${idSuffix}`;
       const btnClear = container.querySelector('.btn-clear') as HTMLButtonElement;
       const btnCopy = container.querySelector('.btn-copy') as HTMLButtonElement;
       const btnDownload = container.querySelector('.btn-download') as HTMLButtonElement;
+      const btnDocx = container.querySelector('.btn-docx') as HTMLButtonElement;
+      const btnWhatsapp = container.querySelector('.btn-whatsapp') as HTMLButtonElement;
+      const btnEmail = container.querySelector('.btn-email') as HTMLButtonElement;
       const btnSwap = container.querySelector('.btn-swap') as HTMLButtonElement;
       const btnExample = container.querySelector('.btn-example') as HTMLButtonElement;
 
@@ -224,37 +258,56 @@ const outputId = `converter-output-${idSuffix}`;
         return { charCount, wordCount };
       };
 
+      const setButtonDisabledState = (btn: HTMLButtonElement, disable: boolean, addPointerEvents: boolean = true) => {
+        if (!btn) return;
+        if (disable) {
+          btn.setAttribute('disabled', 'true');
+          btn.classList.add('opacity-50', 'cursor-not-allowed');
+          if (addPointerEvents) {
+            btn.classList.add('pointer-events-none');
+          } else {
+            btn.classList.remove('pointer-events-none');
+          }
+        } else {
+          btn.removeAttribute('disabled');
+          btn.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+        }
+      };
+
       const updateButtonStates = () => {
         const hasInput = textareaInput.value.length > 0;
-        const hasOutput = textareaOutput.value.length > 0;
+        const outVal = textareaOutput.value;
+        const hasOutput = outVal.length > 0;
+        const outLength = outVal.length;
 
-        if (btnClear) {
-          if (hasInput) {
-            btnClear.removeAttribute('disabled');
-            btnClear.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+        setButtonDisabledState(btnClear, !hasInput);
+        setButtonDisabledState(btnCopy, !hasOutput);
+        setButtonDisabledState(btnDownload, !hasOutput);
+        setButtonDisabledState(btnDocx, !hasOutput);
+
+        if (btnWhatsapp) {
+          if (!hasOutput) {
+            setButtonDisabledState(btnWhatsapp, true, true);
+            btnWhatsapp.removeAttribute('title');
+          } else if (outLength > 1500) {
+            setButtonDisabledState(btnWhatsapp, true, false);
+            btnWhatsapp.setAttribute('title', 'Text too long for WhatsApp sharing — use Download instead');
           } else {
-            btnClear.setAttribute('disabled', 'true');
-            btnClear.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+            setButtonDisabledState(btnWhatsapp, false);
+            btnWhatsapp.removeAttribute('title');
           }
         }
 
-        if (btnCopy) {
-          if (hasOutput) {
-            btnCopy.removeAttribute('disabled');
-            btnCopy.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+        if (btnEmail) {
+          if (!hasOutput) {
+            setButtonDisabledState(btnEmail, true, true);
+            btnEmail.removeAttribute('title');
+          } else if (outLength > 1500) {
+            setButtonDisabledState(btnEmail, true, false);
+            btnEmail.setAttribute('title', 'Text too long for WhatsApp sharing — use Download instead');
           } else {
-            btnCopy.setAttribute('disabled', 'true');
-            btnCopy.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
-          }
-        }
-
-        if (btnDownload) {
-          if (hasOutput) {
-            btnDownload.removeAttribute('disabled');
-            btnDownload.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
-          } else {
-            btnDownload.setAttribute('disabled', 'true');
-            btnDownload.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+            setButtonDisabledState(btnEmail, false);
+            btnEmail.removeAttribute('title');
           }
         }
       };
@@ -270,16 +323,6 @@ const outputId = `converter-output-${idSuffix}`;
         if (inputWordVal) inputWordVal.textContent = inStats.wordCount.toString();
         if (outputCharVal) outputCharVal.textContent = outStats.charCount.toString();
         if (outputWordVal) outputWordVal.textContent = outStats.wordCount.toString();
-
-        // Show/hide Try examples bar based on empty textarea
-        const examplesBar = container.querySelector('.examples-bar') as HTMLDivElement;
-        if (examplesBar) {
-          if (inVal === '') {
-            examplesBar.classList.remove('hidden');
-          } else {
-            examplesBar.classList.add('hidden');
-          }
-        }
 
         updateButtonStates();
       };
@@ -305,10 +348,23 @@ const outputId = `converter-output-${idSuffix}`;
 
         textareaOutput.value = convertedText;
         updateCounts();
+
+        // Automatically scroll preview box to the bottom to keep the latest text in view
+        textareaOutput.scrollTop = textareaOutput.scrollHeight;
       };
 
       // Keystroke Conversion
       textareaInput.addEventListener('input', handleConversion);
+
+      // Synchronize scroll positions between input and output textareas
+      textareaInput.addEventListener('scroll', () => {
+        const maxScrollInput = textareaInput.scrollHeight - textareaInput.clientHeight;
+        if (maxScrollInput > 0) {
+          const scrollPct = textareaInput.scrollTop / maxScrollInput;
+          const maxScrollOutput = textareaOutput.scrollHeight - textareaOutput.clientHeight;
+          textareaOutput.scrollTop = scrollPct * maxScrollOutput;
+        }
+      });
 
       // Clear Screen
       if (btnClear) {
@@ -359,6 +415,69 @@ const outputId = `converter-output-${idSuffix}`;
           a.download = `font-converter-output-${direction}.txt`;
           a.click();
           URL.revokeObjectURL(url);
+        });
+      }
+
+      // Download Word document (.docx)
+      if (btnDocx) {
+        btnDocx.addEventListener('click', () => {
+          const textToDownload = textareaOutput.value;
+          if (!textToDownload) return;
+
+          const lines = textToDownload.split('\n');
+          const children = lines.map((line, index) => {
+            return new TextRun({
+              text: line,
+              break: index > 0 ? 1 : undefined
+            });
+          });
+
+          const doc = new Document({
+            sections: [
+              {
+                properties: {},
+                children: [
+                  new Paragraph({
+                    children: children
+                  })
+                ]
+              }
+            ]
+          });
+
+          Packer.toBlob(doc).then((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `converted-text.docx`;
+            a.click();
+            URL.revokeObjectURL(url);
+          }).catch((err) => {
+            console.error('Failed to generate docx:', err);
+            alert('Failed to generate Word document.');
+          });
+        });
+      }
+
+      // Share via WhatsApp
+      if (btnWhatsapp) {
+        btnWhatsapp.addEventListener('click', () => {
+          const textToShare = textareaOutput.value;
+          if (!textToShare || textToShare.length > 1500) return;
+
+          const url = `https://wa.me/?text=${encodeURIComponent(textToShare)}`;
+          window.open(url, '_blank');
+        });
+      }
+
+      // Share via Email
+      if (btnEmail) {
+        btnEmail.addEventListener('click', () => {
+          const textToShare = textareaOutput.value;
+          if (!textToShare || textToShare.length > 1500) return;
+
+          const url = `mailto:?subject=Converted Text&body=${encodeURIComponent(textToShare)}`;
+          window.location.href = url;
         });
       }
 

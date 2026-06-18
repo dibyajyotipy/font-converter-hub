@@ -91,6 +91,14 @@ export const CONVERTERS: ConverterInfo[] = [
       {
         q: 'Is my data uploaded anywhere?',
         a: 'No. The conversion is performed 100% locally in your web browser. No text is sent to our servers, ensuring your documents remain completely private and secure.'
+      },
+      {
+        q: "Does this converter work for Marathi text?",
+        a: "Yes. Marathi uses the same Devanagari script as Hindi, so Krutidev text typed for Marathi content converts to Unicode the same way. The output will be standard Devanagari Unicode, readable and editable regardless of whether the original content was in Hindi or Marathi."
+      },
+      {
+        q: "Can I convert a Word, Excel, or PDF file directly?",
+        a: "This tool converts pasted or typed text, not uploaded files. To convert a Word, Excel, or PDF document, open the file, copy the Krutidev text from it, paste it into the converter, and then paste the Unicode result back into your document. We're considering direct file upload support for a future update."
       }
     ],
     howTo: {
@@ -104,10 +112,13 @@ export const CONVERTERS: ConverterInfo[] = [
       type: 'brand'
     },
     about: {
-      title: 'About Krutidev to Unicode Font Conversion',
+      title: "About This Krutidev to Unicode Converter",
       paragraphs: [
-        'This converter allows you to instantly translate text written in the legacy <strong>Krutidev 010</strong> font into standard <strong>Unicode Devanagari</strong> (Mangal). Krutidev is a Remington typewriter layout-based visual font mapping that represents Hindi characters visually using English keystrokes. However, because it is not standardized, search engines, mobile phones, and modern web applications cannot index or display Krutidev text unless the font is installed on the user\'s system.',
-        'Converting Krutidev to Unicode makes your Devanagari Hindi text globally compatible, responsive, SEO-ready, and readable across all modern operating systems and digital channels without requiring any additional font downloads.'
+        "Krutidev is a non-Unicode, Remington-layout Hindi font that was widely adopted across Indian government offices, courts, typing institutes, and data entry centers since the 1990s. While reliable for typing inside Microsoft Word with the right font installed, Krutidev text becomes unreadable garbled English characters the moment it's viewed on a phone, shared on WhatsApp, pasted into a website, or opened on a computer without that specific font file. This free online Krutidev font converter solves that problem instantly.",
+        "Our tool converts Krutidev 010 text into standard Unicode Devanagari — the universal Hindi text encoding used by every modern operating system, browser, and search engine. Once converted, your Hindi text becomes searchable, copy-paste friendly, and viewable everywhere without requiring anyone to install a special font.",
+        "This Hindi font converter is built specifically for people who work with legacy government documents, old typing-test files, court records, and archived data entry work — anyone who needs to bring older Krutidev content into the modern Unicode standard used today.",
+        "Unlike many converter tools that upload your text to a server, this entire conversion happens locally inside your browser using JavaScript. Your document content is never transmitted, stored, or logged anywhere — making it a safe choice even for sensitive official or personal documents.",
+        "There's no signup, no installation, and no cost. Paste your Krutidev text, get instant Unicode output, and copy or download the result — all in a few seconds, completely free."
       ]
     },
     relatedTools: ['unicode-to-krutidev', 'chanakya-to-unicode', 'devlys-to-unicode'],
@@ -170,6 +181,14 @@ export const CONVERTERS: ConverterInfo[] = [
       {
         q: 'Is conversion performed locally?',
         a: 'Yes. The conversion is processed 100% locally in your browser. Your text is never uploaded to any server, ensuring complete confidentiality of your documents.'
+      },
+      {
+        q: "Does this work for Marathi text as well as Hindi?",
+        a: "Yes. Since Marathi is also written in Devanagari script, Unicode Marathi text converts to Krutidev 010 the same way Hindi text does. Just paste your Unicode text as usual."
+      },
+      {
+        q: "Can I upload a Word or PDF file instead of pasting text?",
+        a: "Currently this tool works with pasted or typed text only. Copy the Unicode text from your Word, Excel, or PDF file, paste it here, convert it, then paste the Krutidev output back into your document. Direct file upload may be added in a future update."
       }
     ],
     howTo: {
@@ -184,10 +203,13 @@ export const CONVERTERS: ConverterInfo[] = [
       type: 'amber'
     },
     about: {
-      title: 'About Unicode to Krutidev Font Conversion',
+      title: "About This Unicode to Krutidev Converter",
       paragraphs: [
-        'This utility allows you to convert modern <strong>Devanagari Unicode</strong> text back into the legacy <strong>Krutidev 010</strong> layout encoding. While Unicode is the universal digital standard for Hindi text on the internet, many Indian government departments, printing houses, stenography tests, and legacy DTP applications still strictly mandate files submitted in Krutidev or typing in Krutidev layout.',
-        'Our tool converts standard Devanagari characters into the corresponding Remington layout keystrokes. Once converted, you can simply paste the English characters into your document and apply the Krutidev 010 font family to render it correctly as Hindi text.'
+        "Many official Hindi documents, old government records, and legal templates were originally typed in Krutidev — a Remington-layout, non-Unicode font still required by several courts, typing examinations, and government departments across India. If your content currently exists in modern Unicode Devanagari (the standard Hindi text used in Word, Google Docs, and websites) but needs to be submitted, printed, or formatted in the older Krutidev font, this free online converter handles that instantly.",
+        "This tool converts standard Unicode Hindi text into Krutidev 010 keystroke-mapped characters. Once converted, the output text will display as readable Devanagari only when the Krutidev 010 font is applied — a small but important detail anyone preparing official Krutidev documents needs to know.",
+        "This Hindi font converter is especially useful for typing instructors preparing practice material, government employees formatting documents in legacy systems, and students preparing for typing examinations that still grade work in Krutidev format. It bridges the gap between today's universal Unicode standard and the older font systems that many institutions haven't fully phased out.",
+        "As with all tools on Font Converter Hub, this conversion runs entirely in your browser. No text is uploaded, transmitted, or saved on any server — your documents remain completely private throughout the process.",
+        "There's no account required, no software to download, and no cost to use it. Simply paste your Unicode Hindi text, get instant Krutidev-mapped output, then copy the result or download it as a text file — ready to apply the Krutidev 010 font in Word or your document editor of choice."
       ]
     },
     relatedTools: ['krutidev-to-unicode', 'chanakya-to-unicode', 'devlys-to-unicode'],

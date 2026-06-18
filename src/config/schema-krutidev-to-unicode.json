@@ -58,6 +58,22 @@
             "@type": "Answer",
             "text": "No. The conversion is performed 100% locally in your web browser. No text is sent to our servers, ensuring your documents remain completely private and secure."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this converter work for Marathi text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Marathi uses the same Devanagari script as Hindi, so Krutidev text typed for Marathi content converts to Unicode the same way. The output will be standard Devanagari Unicode, readable and editable regardless of whether the original content was in Hindi or Marathi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert a Word, Excel, or PDF file directly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This tool converts pasted or typed text, not uploaded files. To convert a Word, Excel, or PDF document, open the file, copy the Krutidev text from it, paste it into the converter, and then paste the Unicode result back into your document. We're considering direct file upload support for a future update."
+          }
         }
       ]
     },
