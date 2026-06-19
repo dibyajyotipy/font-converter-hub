@@ -9,7 +9,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "tsc src/utils/krutidevConverter.ts src/utils/conversionRegistry.ts --outDir dist-test --target ESNext --moduleResolution node --resolveJsonModule && node test/run-tests.js",
+    "test": "tsx tests/run-tests.ts",
     "test:converters": "npm run test"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "@astrojs/check": "^0.9.4",
     "@tailwindcss/vite": "^4.0.0",
     "tailwindcss": "^4.0.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.7.3"
   }
 }

@@ -1,40 +1,39 @@
 /**
- * Comprehensive mapping between legacy Krutidev 010 and standard Devanagari Unicode.
- * Mappings are ordered such that complex conjuncts are replaced before individual characters.
+ * Production-Grade Krutidev 010 to Devanagari Unicode Converter
  */
 
-export const CHARS_KD = [
-  "ñ", "Q+Z", "sas", "aa", ")Z", "ZZ", "‘", "’", "“", "”",
+const CHARS_KD = [
+  "ñ", "Q+Z", "sas", "aa", ")Z", "ZZ",
   "å", "ƒ", "„", "…", "†", "‡", "ˆ", "‰", "Š", "‹",
   "¶+", "d+", "[+k", "[+", "x+", "T+", "t+", "M+", "<+", "Q+", ";+", "j+", "u+",
   "Ùk", "Ù", "ä", "–", "—", "é", "™", "=kk", "f=k",
   "à", "á", "â", "ã", "ºz", "º", "í", "{k", "{", "=", "«",
   "Nî", "Vî", "Bî", "Mî", "<î", "|", "K", "}",
   "J", "Vª", "Mª", "<ªª", "Nª", "Ø", "Ý", "nzZ", "æ", "ç", "Á", "xz", "#", ":",
-  "v‚", "vks", "vkS", "vk", "v", "b±", "Ã", "bZ", "b", "m", "Å", ",s", ",", "_",
-  "ô", "d", "Dk", "D", "[k", "[", "x", "Xk", "X", "Ä", "?k", "?", "³",
-  "pkS", "p", "Pk", "P", "N", "t", "Tk", "T", ">", "÷", "¥",
+  "vksS", "vkS", "vks", "v‚", "vk", "v", "b±", "Ã", "bZ", "b", "m", "Å", ",s", ",", "_",
+  "ô", "Dk", "d", "D", "[k", "[", "Xk", "x", "X", "Ä", "?k", "?", "³",
+  "pkS", "Pk", "p", "P", "N", "Tk", "t", "T", ">", "÷", "¥",
   "ê", "ë", "V", "B", "ì", "ï", "M+", "<+", "M", "<", ".k", ".",
-  "r", "Rk", "R", "Fk", "F", ")", "n", "/k", "èk", "/", "Ë", "è", "u", "Uk", "U",
-  "i", "Ik", "I", "Q", "¶", "c", "Ck", "C", "Hk", "H", "e", "Ek", "E",
-  ";", "¸", "j", "y", "Yk", "Y", "G", "o", "Ok", "O",
-  "'k", "'", "\"k", "\"", "l", "Lk", "L", "g",
+  "Rk", "r", "R", "Fk", "F", ")", "n", "/k", "èk", "/", "Ë", "è", "Uk", "u", "U",
+  "Ik", "i", "I", "Q", "¶", "Ck", "c", "C", "Hk", "H", "Ek", "e", "E",
+  ";", "¸", "j", "Yk", "y", "Y", "G", "Ok", "o", "O",
+  "'k", "'", "\"k", "\"", "Lk", "l", "L", "g",
   "È", "z",
   "Ì", "Í", "Î", "Ï", "Ñ", "Ò", "Ó", "Ô", "Ö", "Ø", "Ù", "Ük", "Ü",
-  "‚", "ks", "kS", "k", "h", "q", "w", "`", "s", "S",
-  "a", "¡", "%", "W", "•", "·", "∙", "·", "~j", "~", "\\", "+", " ः",
-  "^", "*", "Þ", "ß", "(", "¼", "½", "¿", "À", "¾", "A", "-", "&", "&", "Œ", "]", "~ ", "@"
+  "ksS", "kS", "ks", "‚", "k", "h", "q", "w", "`", "s", "S",
+  "a", "¡", "%", "W", "•", "·", "∙", "~j", "~", "+", " ः",
+  "^", "*", "Þ", "ß", "(", "¼", "½", "¿", "À", "¾", "A", "-", "&", "Œ", "]", "~ ", "@"
 ];
 
-export const CHARS_UNICODE = [
-  "॰", "QZ+", "sa", "a", "र्द्ध", "Z", "\"", "\"", "'", "'",
+const CHARS_UNICODE = [
+  "॰", "QZ+", "sa", "a", "र्द्ध", "Z",
   "०", "१", "२", "३", "४", "५", "६", "७", "८", "९",
-  "फ़्", "क़", "ख़", "ख़्", "ग़", "ज़्", "ज़", "ड़", "ढ़", "फ़", "य़", "ऱ", "ऩ",
+  "फ़्", "क़", "ख़", "ख़्", "ग़", "ज़्", "ज़", "ड़", "ढ़", "फ़", "य़", "ऱ", "ऩ",
   "त्त", "त्त्", "क्त", "दृ", "कृ", "न्न", "न्न्", "=k", "f=",
   "ह्न", "ह्य", "हृ", "ह्म", "ह्र", "ह्", "द्द", "क्ष", "क्ष्", "त्र", "त्र्",
   "छ्य", "ट्य", "ठ्य", "ड्य", "ढ्य", "द्य", "ज्ञ", "द्व",
   "श्र", "ट्र", "ड्र", "ढ्र", "छ्र", "क्र", "फ्र", "र्द्र", "द्र", "प्र", "प्र", "ग्र", "रु", "रू",
-  "ऑ", "ओ", "औ", "आ", "अ", "ईं", "ई", "ई", "इ", "उ", "ऊ", "ऐ", "ए", "ऋ",
+  "औ", "औ", "ओ", "ऑ", "आ", "अ", "ईं", "ई", "ई", "इ", "उ", "ऊ", "ऐ", "ए", "ऋ",
   "क्क", "क", "क", "क्", "ख", "ख्", "ग", "ग", "ग्", "घ", "घ", "घ्", "ङ",
   "चै", "च", "च", "च्", "छ", "ज", "ज", "ज्", "झ", "झ्", "ञ",
   "ट्ट", "ट्ठ", "ट", "ठ", "ड्ड", "ड्ढ", "ड़", "ढ़", "ड", "ढ", "ण", "ण्",
@@ -44,141 +43,300 @@ export const CHARS_UNICODE = [
   "श", "श्",  "ष", "ष्", "स", "स", "स्", "ह",
   "ीं", "्र",
   "द्द", "ट्ट", "ट्ठ", "ड्ड", "कृ", "भ", "्य", "ड्ढ", "झ्", "क्र", "त्त्", "श", "श्",
-  "ॉ", "ो", "ौ", "ा", "ी", "ु", "ू", "ृ", "े", "ै",
-  "ं", "ँ", "ः", "ॅ", "ऽ", "ऽ", "ऽ", "ऽ", "्र", "्", "?", "़", ":",
-  "‘", "’", "“", "”", ";", "(", ")", "{", "}", "=", "।", ".", "-", "µ", "॰", ",", "् ", "/"
+  "ौ", "ौ", "ो", "ॉ", "ा", "ी", "ु", "ू", "ृ", "े", "ै",
+  "ं", "ँ", "ः", "ॅ", "ऽ", "ऽ", "ऽ", "्र", "्", "़", ":",
+  "‘", "’", "“", "”", ";", "(", ")", "{", "}", "=", "।", ".", "-", "॰", ",", "् ", "/"
 ];
 
-const DEVANAGARI_CONSONANTS = 'कखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसहळक़ख़ग़ज़ड़ढ़फ़य़ऱऩ';
-const DEVANAGARI_MODIFIERS = '[\\u093e-\\u094c\\u0901\\u0902\\u0903\\u0945\\u0947\\u0948]';
+const DEVANAGARI_CONSONANTS = 'कखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसहळक़ख़ग़ज़ड़ढ़फ़य़ऱऩ';
 
-/**
- * Replaces all occurrences of a search string in a text.
- */
 function replaceAll(text: string, search: string, replacement: string): string {
   return text.split(search).join(replacement);
 }
 
-/**
- * Converts Krutidev 010 encoded text into standard Devanagari Unicode.
- */
 export function convertKrutidevToUnicode(krutidevText: string): string {
   if (!krutidevText) return '';
 
   let text = krutidevText;
 
-  // 1. Initial cleanup of space-bound symbols
-  text = replaceAll(text, ' \xaa', '\xaa'); // space + ्र -> ्र
+  // 1. Data Sanitization
+  text = text.replace(/[\u200B-\u200D\uFEFF]/g, '');
+
+  // 2. Pre-Mapping Visual Formatting Fixes
+  text = replaceAll(text, ' \xaa', '\xaa');
   text = replaceAll(text, ' ~j', '~j');
   text = replaceAll(text, ' z', 'z');
+  text = replaceAll(text, '\\"', '"');
+  text = text.replace(/^\]oa/g, 'एवं').replace(/ \]oa/g, ' एवं');
+  text = replaceAll(text, 'rRo', 'rÙo'); 
 
-  // 2. Map standard characters (using ordered list)
+  // 3. Core Array Mapping
   for (let i = 0; i < CHARS_KD.length; i++) {
     text = replaceAll(text, CHARS_KD[i], CHARS_UNICODE[i]);
   }
 
-  // 3. Replace special composite glyphs
-  text = replaceAll(text, '±', 'Zं'); // reph + anusvara
+  // 4. Special Composite Glyphs Post-Pass
+  text = replaceAll(text, '±', 'Zं'); 
   text = replaceAll(text, 'Æ', 'र्f');
   text = replaceAll(text, 'Ç', 'fa');
   text = replaceAll(text, 'É', 'र्fa');
   text = replaceAll(text, 'Ê', 'ीZ');
 
-  // 4. Shift chhoti-i vowel sign ('f') to the correct position (after the consonant)
-  let position_of_i = text.indexOf('f');
-  let loopLimit = 0;
-  while (position_of_i > -1 && loopLimit < text.length) {
-    if (position_of_i < text.length - 1) {
-      const next_char = text.charAt(position_of_i + 1);
-      const target = 'f' + next_char;
-      text = replaceAll(text, target, next_char + 'ि');
+  // 5. The "Chhoti Ee" (f) Shift 
+  text = text.replace(/f((?:[\u0900-\u097F]\u094d)*[\u0900-\u097F])/g, '$1\u093f');
+  text = text.replace(/fa((?:[\u0900-\u097F]\u094d)*[\u0900-\u097F])/g, '$1\u093f\u0902');
+  text = text.replace(/\u093f\u094d((?:[\u0900-\u097F]\u094d)*[\u0900-\u097F])/g, '\u094d$1\u093f');
+
+  // 6. The "Reph" (Z -> र्) Shift
+  const matras = "अआइईउऊएऐओऔािीुूृेैोौं:ँॅॉः़";
+  let rephPos = text.indexOf('Z');
+  let safetyLoop = 0; 
+  
+  while (rephPos > -1 && safetyLoop < text.length) {
+    let probPos = rephPos - 1;
+    
+    while (probPos >= 0 && matras.includes(text.charAt(probPos))) probPos--;
+    if (probPos >= 0 && DEVANAGARI_CONSONANTS.includes(text.charAt(probPos))) probPos--;
+    while (probPos >= 1 && text.charAt(probPos) === '्' && DEVANAGARI_CONSONANTS.includes(text.charAt(probPos - 1))) {
+      probPos -= 2;
     }
-    position_of_i = text.indexOf('f', position_of_i + 1);
-    loopLimit++;
+    
+    const clusterStart = probPos + 1;
+    
+    if (clusterStart < rephPos) {
+      text = text.substring(0, clusterStart) + 'र्' + text.substring(clusterStart, rephPos) + text.substring(rephPos + 1);
+    } else {
+      text = text.substring(0, rephPos) + 'र्' + text.substring(rephPos + 1);
+    }
+    
+    rephPos = text.indexOf('Z');
+    safetyLoop++;
   }
 
-  // 5. Shift chhoti-i-anusvara ('fa') to the correct position
-  let position_of_fa = text.indexOf('fa');
-  loopLimit = 0;
-  while (position_of_fa > -1 && loopLimit < text.length) {
-    if (position_of_fa < text.length - 2) {
-      const next_char = text.charAt(position_of_fa + 2);
-      const target = 'fa' + next_char;
-      text = replaceAll(text, target, next_char + 'िं');
-    }
-    position_of_fa = text.indexOf('fa', position_of_fa + 1);
-    loopLimit++;
-  }
-
-  // 6. Fix chhoti-ee vowel sign placement when it lands on half-letters
-  let position_of_wrong_ee = text.indexOf('ि्');
-  loopLimit = 0;
-  while (position_of_wrong_ee > -1 && loopLimit < text.length) {
-    if (position_of_wrong_ee < text.length - 2) {
-      const next_consonant = text.charAt(position_of_wrong_ee + 2);
-      const target = 'ि्' + next_consonant;
-      text = replaceAll(text, target, '्' + next_consonant + 'ि');
-    }
-    position_of_wrong_ee = text.indexOf('ि्', position_of_wrong_ee + 2);
-    loopLimit++;
-  }
-
-  // 7. Fix reph ('Z') placement by moving it to the front of consonant clusters
-  const set_of_matras = "अ आ इ ई उ ऊ ए ऐ ओ औ ा ि ी ु ू ृ े ै ो ौ ं : ँ ॅ ॉ ः ़";
-  let position_of_R = text.indexOf('Z');
-  loopLimit = 0;
-  while (position_of_R > -1 && loopLimit < text.length) {
-    let probable_position = position_of_R - 1;
-    
-    // 1. Skip trailing matras/modifiers
-    while (probable_position >= 0 && set_of_matras.indexOf(text.charAt(probable_position)) > -1) {
-      probable_position--;
-    }
-    
-    // 2. Skip exactly one base consonant
-    if (probable_position >= 0 && DEVANAGARI_CONSONANTS.indexOf(text.charAt(probable_position)) > -1) {
-      probable_position--;
-    }
-    
-    // 3. Skip any preceding half-consonants (consonant + halant '्')
-    while (probable_position >= 1 && text.charAt(probable_position) === '्' && DEVANAGARI_CONSONANTS.indexOf(text.charAt(probable_position - 1)) > -1) {
-      probable_position -= 2;
-    }
-    
-    // The cluster starts at probable_position + 1
-    const cluster_start = probable_position + 1;
-    if (cluster_start < position_of_R) {
-      const cluster = text.substring(cluster_start, position_of_R);
-      text = replaceAll(text, cluster + 'Z', 'र्' + cluster);
-    }
-    position_of_R = text.indexOf('Z');
-    loopLimit++;
-  }
+  // 7. Final Output Normalization
+  text = replaceAll(text, '\\', '?'); 
+  text = replaceAll(text, 'ओै', 'औ');
+  
+  // Fix misplaced Nuktas that typists put after the matra instead of before (e.g., जो़ -> ज़ो)
+  text = text.replace(/([ािीुूृेैोौ])़/g, '़$1');
 
   return text;
 }
 
-/**
- * Converts standard Devanagari Unicode text into legacy Krutidev 010 format.
- */
+const UNICODE_TO_KRUTIDEV_PAIRS: [string, string][] = [
+  // Punctuation & English Symbols
+  ["‘", "^"],
+  ["’", "*"],
+  ["“", "Þ"],
+  ["”", "ß"],
+  ["(", "¼"],
+  [")", "½"],
+  ["{", "¿"],
+  ["}", "À"],
+  ["=", "¾"],
+  ["।", "A"],
+  ["?", "\\"],
+  ["-", "&"],
+  ["µ", "&"],
+  ["॰", "Œ"],
+  [",", "]"],
+  [".", "-"],
+  ["् ", "~ "],
+  
+  // Numbers
+  ["०", "å"],
+  ["१", "ƒ"],
+  ["२", "„"],
+  ["३", "…"],
+  ["४", "†"],
+  ["५", "‡"],
+  ["६", "ˆ"],
+  ["७", "‰"],
+  ["८", "Š"],
+  ["९", "‹"],
+  ["x", "Û"],
+
+  // Special Combined / Nukta Characters
+  ["फ़्", "¶"],
+  ["क़", "d"],
+  ["ख़", "[k"],
+  ["ग़", "x"],
+  ["ज़्", "T"],
+  ["ज़", "t"],
+  ["ड़", "M+"],
+  ["ढ़", "<+"],
+  ["फ़", "Q"],
+  ["य़", ";"],
+  ["ऱ", "j"],
+  ["ऩ", "u"],
+  ["त्त्", "Ù"],
+  ["त्त", "Ùk"],
+  ["क्त", "Dr"],
+  ["दृ", "–"],
+  ["कृ", "—"],
+  
+  // Conjuncts & Half Characters
+  ["ह्न", "à"],
+  ["ह्य", "á"],
+  ["हृ", "â"],
+  ["ह्म", "ã"],
+  ["ह्र", "ºz"],
+  ["ह्", "º"],
+  ["द्द", "í"],
+  ["क्ष्", "{"],
+  ["क्ष", "{k"],
+  ["त्र्", "«"],
+  ["त्र", "="],
+  ["ज्ञ", "K"],
+  ["छ्य", "Nî"],
+  ["ट्य", "Vî"],
+  ["ठ्य", "Bî"],
+  ["ड्य", "Mî"],
+  ["ढ्य", "<î"],
+  ["द्य", "|"],
+  ["द्व", "}"],
+  ["श्र", "J"],
+  ["ट्र", "Vª"],
+  ["ड्र", "Mª"],
+  ["ढ्र", "<ªª"],
+  ["छ्र", "Nª"],
+  ["क्र", "Ø"],
+  ["फ्र", "Ý"],
+  ["द्र", "æ"],
+  ["प्र", "ç"],
+  ["ग्र", "xz"],
+  ["रु", "#"],
+  ["रू", ":"],
+  ["्र", "z"],
+  
+  // Independent Vowels
+  ["ओ", "vks"],
+  ["औ", "vkS"],
+  ["आ", "vk"],
+  ["अ", "v"],
+  ["ई", "bZ"],
+  ["इ", "b"],
+  ["उ", "m"],
+  ["ऊ", "Å"],
+  ["ऐ", ",s"],
+  ["ए", ","],
+  ["ऋ", "_"],
+
+  // Consonants & Half Consonants
+  ["क्", "D"],
+  ["क", "d"],
+  ["क्क", "ô"],
+  ["ख्", "["],
+  ["ख", "[k"],
+  ["ग्", "X"],
+  ["ग", "x"],
+  ["घ्", "?"],
+  ["घ", "?k"],
+  ["ङ", "³"],
+  ["चौ", "pkS"],
+  ["चै", "pS"],
+  ["च्", "P"],
+  ["च", "p"],
+  ["छ", "N"],
+  ["ज्", "T"],
+  ["ज", "t"],
+  ["झ्", "÷"],
+  ["झ", ">"],
+  ["ञ", "¥"],
+  
+  // Beckett / Remington Special Keys
+  ["ट्ट", "ê"],
+  ["ट्ठ", "ë"],
+  ["ट", "V"],
+  ["ठ", "B"],
+  ["ड्ड", "ì"],
+  ["ड्ढ", "ï"],
+  ["ड", "M"],
+  ["ढ", "<"],
+  ["ण्", "."],
+  ["ण", ".k"],
+
+  ["त्", "R"],
+  ["त", "r"],
+  ["थ्", "F"],
+  ["थ", "Fk"],
+  ["द्ध", ")"],
+  ["द", "n"],
+  ["ध्", "/"],
+  ["ध", "/k"],
+  ["न्", "U"],
+  ["न", "u"],
+
+  ["प्", "I"],
+  ["प", "i"],
+  ["फ्", "¶"],
+  ["फ", "Q"],
+  ["ब्", "C"],
+  ["ब", "c"],
+  ["भ्", "H"],
+  ["भ", "Hk"],
+  ["म्", "E"],
+  ["म", "e"],
+
+  ["य्", "¸"],
+  ["य", ";"],
+  ["र", "j"],
+  ["ल्", "Y"],
+  ["ल", "Yk"],
+  ["ळ", "G"],
+  ["व्", "O"],
+  ["व", "Ok"],
+
+  ["श्", "'"],
+  ["श", "'k"],
+  ["ष्", "\""],
+  ["ष", "\"k"],
+  ["स्", "L"],
+  ["स", "Lk"],
+  ["ह", "g"],
+
+  // Matras & Vowel Signs
+  ["ऑ", "v‚"],
+  ["ॉ", "‚"],
+  ["ो", "ks"],
+  ["ौ", "kS"],
+  ["ा", "k"],
+  ["ी", "h"],
+  ["ु", "q"],
+  ["ू", "w"],
+  ["ृ", "`"],
+  ["े", "s"],
+  ["ै", "S"],
+  ["ं", "a"],
+  ["ँ", "¡"],
+  ["ः", "%"],
+  ["ॅ", "W"],
+  ["ऽ", "·"],
+  ["़", "+"],
+  ["्", "~"]
+];
+
+UNICODE_TO_KRUTIDEV_PAIRS.sort((a, b) => b[0].length - a[0].length);
+
 export function convertUnicodeToKrutidev(unicodeText: string): string {
   if (!unicodeText) return '';
 
   let text = unicodeText;
 
-  // 1. Shift Devanagari chhoti-i matra (ि) to the front of the consonant cluster
-  // In Unicode, it comes AFTER the cluster. In Krutidev, it must be typed BEFORE.
-  const clusterRegex = new RegExp('(ि)?((?:[' + DEVANAGARI_CONSONANTS + ']्)*[' + DEVANAGARI_CONSONANTS + '])ि', 'g');
-  text = text.replace(clusterRegex, 'ि$2');
+  // 1. Data Sanitization
+  text = text.replace(/[\u200B-\u200D\uFEFF]/g, '');
 
-  // 2. Shift Devanagari reph (र्) to the end of the consonant cluster + matras
-  // In Unicode, it is stored BEFORE the consonant cluster. In Krutidev, it is typed AFTER.
-  const rephRegex = new RegExp('र्(ि?(?:[' + DEVANAGARI_CONSONANTS + ']्)*[' + DEVANAGARI_CONSONANTS + ']' + DEVANAGARI_MODIFIERS + '*)', 'g');
-  text = text.replace(rephRegex, '$1Z');
+  // 2. Reph (र्) Shift: Move half-R (र + ्) to the end of the consonant cluster + matras, and replace with 'Z'
+  // Unicode Reph is \u0930\u094d (र्)
+  text = text.replace(/\u0930\u094d((?:[\u0900-\u097F]\u094d)*[\u0900-\u097F][\u093e-\u094d\u0901-\u0903]*)/g, '$1Z');
 
-  // 3. Map Unicode characters to Krutidev equivalents using the ordered arrays
-  for (let i = 0; i < CHARS_UNICODE.length; i++) {
-    text = replaceAll(text, CHARS_UNICODE[i], CHARS_KD[i]);
+  // 3. Chhoti-Ee (ि) Shift: Move chhoti-ee matra (\u093f) to the front of the preceding consonant cluster, and replace with 'f'
+  text = text.replace(/((?:[\u0900-\u097F]\u094d)*[\u0900-\u097F])\u093f\u0902/g, 'fa$1');
+  text = text.replace(/((?:[\u0900-\u097F]\u094d)*[\u0900-\u097F])\u093f/g, 'f$1');
+
+  // 4. Character Replacements
+  for (const [unicodeStr, krutidevStr] of UNICODE_TO_KRUTIDEV_PAIRS) {
+    text = replaceAll(text, unicodeStr, krutidevStr);
   }
 
   return text;
