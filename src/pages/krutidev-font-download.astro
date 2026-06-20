@@ -1,0 +1,411 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import RelatedTools from '../components/RelatedTools.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'KrutiDev Font Download' },
+];
+
+const faqs = [
+  {
+    q: "How do I download KrutiDev font for free?",
+    a: "You can download the KrutiDev font file for free directly from this page in TTF format. Click the prominent orange 'Download KrutiDev Font' button near the top of this guide to get the verified, malware-free TrueType font (.ttf) file immediately."
+  },
+  {
+    q: "How do I install KrutiDev font in MS Word?",
+    a: "First, download the .ttf file from this page. Right-click on the file and select 'Install for all users' (or drag and drop it into Windows Font Settings). Once installed, restart MS Word and select 'Kruti Dev 010' from the font dropdown menu."
+  },
+  {
+    q: "Is KrutiDev a Unicode font?",
+    a: "No. KrutiDev is a legacy, non-Unicode visual mapping font. It uses standard English character keycodes to display Hindi symbols visually. For universal digital compatibility (like typing on websites or mobile phones), you need to convert it using a KrutiDev to Unicode converter."
+  },
+  {
+    q: "Can I use KrutiDev font on Android phones?",
+    a: "Android does not support system-wide visual font installation natively. However, you can load and use the TTF file within custom office document suites (like WPS Office) or text editors. For easy mobile readability, we recommend converting KrutiDev text to Unicode Devanagari."
+  },
+  {
+    q: "What is the difference between KrutiDev and Mangal font?",
+    a: "KrutiDev is a legacy visual font with a Remington keyboard layout that requires font installation. Mangal is a standard Unicode Devanagari font that comes pre-installed on modern operating systems and displays correctly on all devices without installing any custom files."
+  },
+  {
+    q: "Which KrutiDev version is used in government exams?",
+    a: "Kruti Dev 010 (Regular) is the standard and most commonly used version in Indian government typing tests, courts, state PSCs, and SSC typing examinations."
+  }
+];
+
+// Generate JSON-LD FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "KrutiDev Font Free Download – Latest Version for Windows, MS Word & Android",
+  "description": "Download KrutiDev font for free in TTF format. Use it on Windows, MS Word, Excel, Android & PC. Includes installation guide and KrutiDev to Unicode/Mangal converter link.",
+  "url": new URL('/krutidev-font-download', Astro.site || 'https://fontconverterhub.com').href,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Font Converter Hub",
+    "url": "https://fontconverterhub.com",
+    "logo": "https://fontconverterhub.com/favicon.svg"
+  }
+};
+
+const schemas = [pageSchema, faqSchema];
+---
+
+<Layout
+  title="KrutiDev Font Free Download – Latest Version for Windows, MS Word & Android"
+  description="Download KrutiDev font for free in TTF format. Use it on Windows, MS Word, Excel, Android & PC. Includes installation guide and KrutiDev to Unicode/Mangal converter link."
+  schema={schemas}
+>
+  <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5">
+    <div class="download-container px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbs} />
+
+      <!-- Main SEO Content Card -->
+      <div class="border border-slate-200/60 dark:border-slate-800/60 rounded-2xl bg-white dark:bg-slate-900 p-6 sm:p-10 shadow-xs mt-6 mb-10">
+        
+        <!-- H1 Hero Section -->
+        <div class="text-center mb-8">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 border border-orange-200/10 mb-4 select-none">
+            ⚡ Safe & Verified Download
+          </span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight mb-4">
+            Download KrutiDev Font for Free (Windows, MS Word, Android & PC)
+          </h1>
+          <p class="text-sm sm:text-base text-slate-650 dark:text-slate-350 leading-relaxed max-w-2xl mx-auto">
+            Get the clean, safe, and latest TrueType (.ttf) file of the classic <strong>krutidev font hindi</strong> typing layout. Follow our installation guide for Windows, Microsoft Word, and Android, and access our conversion suite to solve compatibility errors.
+          </p>
+        </div>
+
+        <!-- Prominent Download Button Section -->
+        <div class="flex flex-col items-center justify-center p-8 rounded-2xl bg-slate-50 dark:bg-slate-950/40 border border-slate-200/60 dark:border-slate-800/60 text-center mb-10">
+          <div class="mb-4">
+            <span class="text-xs text-slate-500 dark:text-slate-400 block mb-1">File Name: <strong class="text-slate-800 dark:text-slate-200">KrutiDev.ttf</strong></span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 block">File Size: <strong>56.2 KB</strong> | Format: <strong>TrueType Font (.ttf)</strong></span>
+          </div>
+          
+          <a
+            href="/fonts/KrutiDev.ttf"
+            download="KrutiDev.ttf"
+            class="download-btn group"
+            aria-label="Download KrutiDev Font file"
+          >
+            <svg class="w-5 h-5 mr-2 -ml-1 text-white group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download KrutiDev Font
+          </a>
+          
+          <span class="text-[11px] text-emerald-600 dark:text-emerald-450 mt-3 flex items-center gap-1.5 font-semibold">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Clean File: 0/70 Detections on VirusTotal
+          </span>
+        </div>
+
+        <!-- TrustStrip -->
+        <TrustStrip className="my-6 border-b border-slate-200/60 dark:border-slate-800/40 pb-6" />
+
+        <!-- Detailed Guide Content -->
+        <div class="space-y-10 text-slate-650 dark:text-slate-350">
+          
+          <!-- Section 1: What is KrutiDev -->
+          <section>
+            <h2>What is KrutiDev Font?</h2>
+            <p>
+              The <strong>krutidev font hindi</strong> typeface is the most widely used legacy, non-Unicode Devanagari font family. Widely adopted across Indian courts, government typing tests (such as SSC, CPCT, Railways, and state typing examinations), and publishing companies, it translates standard QWERTY English keypresses into Hindi characters visually. Because it visualizes Devanagari characters using English keystroke codes, computers cannot read, search, or index KrutiDev text natively unless the specific font file is installed on the user's system.
+            </p>
+          </section>
+
+          <!-- Section 2: How to Download -->
+          <section>
+            <h2>How to Download KrutiDev Font</h2>
+            <p>
+              To complete your <strong>krutidev font download</strong> safely:
+            </p>
+            <ol class="list-decimal pl-5 space-y-2 mt-3 text-sm">
+              <li>Click the orange <strong>Download KrutiDev Font</strong> button above to download the clean <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-850">KrutiDev.ttf</code> file.</li>
+              <li>Select your target download folder (like Downloads or Desktop) and save the file.</li>
+              <li>Verify the file extension is strictly <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-850">.ttf</code> and the size is around <strong>56 KB</strong>.</li>
+            </ol>
+          </section>
+
+          <!-- Section 3: How to Install in Windows -->
+          <section>
+            <h2>How to Install KrutiDev Font in Windows (10/11)</h2>
+            <p>
+              Once your download check is complete, install the font using these native steps:
+            </p>
+            <div class="space-y-4 mt-4">
+              <div class="p-4 rounded-xl border border-slate-150 dark:border-slate-850 bg-slate-50/20 dark:bg-slate-950/10">
+                <h4 class="font-bold text-sm text-slate-900 dark:text-slate-100 mb-1">Method 1: Right-Click Installation (Recommended)</h4>
+                <p class="text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  Locate the downloaded <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-800">KrutiDev.ttf</code> file. Right-click the file and select <strong>"Install for all users"</strong>. This ensures the font registers globally and is visible to print drivers, administrative software, and local word processors.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-150 dark:border-slate-850 bg-slate-50/20 dark:bg-slate-950/10">
+                <h4 class="font-bold text-sm text-slate-900 dark:text-slate-100 mb-1">Method 2: Drag & Drop via Settings</h4>
+                <p class="text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  Open your Start Menu and search for <strong>Font Settings</strong> (or navigate to <code class="font-mono text-xs">Settings &gt; Personalization &gt; Fonts</code>). Drag the downloaded TrueType file and drop it into the designated box marked <em>"Drag and drop to install"</em>.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl border border-slate-150 dark:border-slate-850 bg-slate-50/20 dark:bg-slate-950/10">
+                <h4 class="font-bold text-sm text-slate-900 dark:text-slate-100 mb-1">Method 3: Direct File Copy</h4>
+                <p class="text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  Press <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-800">Win + R</code> to launch the Run Dialog. Type <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-800">shell:fonts</code> and press Enter. Copy the <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-800">KrutiDev.ttf</code> file and paste it into the folder that opens.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section 4: How to Install in MS Word -->
+          <section>
+            <h2>How to Install KrutiDev Font in MS Word</h2>
+            <p>
+              Once the font is installed on Windows, it will load automatically in Word:
+            </p>
+            <ol class="list-decimal pl-5 space-y-2 mt-3 text-sm">
+              <li>Close Microsoft Word entirely to clear cached fonts.</li>
+              <li>Reopen Microsoft Word and create a new blank document.</li>
+              <li>In the font selection menu, type or select <strong>"Kruti Dev 010"</strong>.</li>
+              <li>Begin typing. The system will now map QWERTY key presses to Devanagari glyphs.</li>
+            </ol>
+          </section>
+
+          <!-- Section 5: How to Install in Android Mobile -->
+          <section>
+            <h2>How to Install KrutiDev Font in Android Mobile</h2>
+            <p>
+              Because Android does not support system-wide TrueType font installation natively, you have to use alternative methods:
+            </p>
+            <ul class="list-disc pl-5 space-y-2 mt-3 text-sm">
+              <li><strong>Office suites:</strong> Applications like WPS Office or custom document editors let you load external fonts. Transfer `KrutiDev.ttf` to your phone and import it using the app's font panel.</li>
+              <li><strong>Typing utilities:</strong> Download keyboard mapping tools from the Google Play Store that support the Remington typewriter layout.</li>
+              <li><strong>Standardizing text:</strong> The easiest way to share, view, and read legacy text on Android phones is to translate it to standard Devanagari Unicode (Mangal) using a <strong>krutidev font converter</strong>. Unicode text displays perfectly on any mobile device without needing any custom font files.</li>
+            </ul>
+          </section>
+
+          <!-- Section 6: KrutiDev Font Family / Variants -->
+          <section>
+            <h2>KrutiDev Font Family / Variants</h2>
+            <p>
+              The KrutiDev family features multiple versions with differences in width, boldness, and character layouts. Here is a summary:
+            </p>
+            
+            <div class="overflow-x-auto my-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+              <table class="font-table">
+                <thead>
+                  <tr>
+                    <th>Font Variant</th>
+                    <th>Spacing Profile</th>
+                    <th>Weight</th>
+                    <th>Standard Application</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-bold">Kruti Dev 010</td>
+                    <td>Standard</td>
+                    <td>Regular</td>
+                    <td>Government examinations, courts, standard typing practices.</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Kruti Dev 011</td>
+                    <td>Narrow / Condensed</td>
+                    <td>Regular</td>
+                    <td>Compact printing, newspapers, books.</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Kruti Dev 055</td>
+                    <td>Expanded / Wide</td>
+                    <td>Regular</td>
+                    <td>Legal notices, public banners, and forms.</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Kruti Dev Bold</td>
+                    <td>Standard</td>
+                    <td>Bold</td>
+                    <td>Document headings, highlights, and emphasis.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 7: KrutiDev Font Hindi Typing & Keyboard Layout -->
+          <section>
+            <h2>KrutiDev Font Hindi Typing & Keyboard Layout</h2>
+            <p>
+              Typing with KrutiDev requires learning the Remington keyboard layout. The <strong>krutidev font keyboard</strong> layout maps individual English letters to visual Hindi symbols:
+            </p>
+            <ul class="list-disc pl-5 space-y-2 mt-3 text-sm">
+              <li>Pressing <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-800">d</code> outputs the base consonant <strong class="text-slate-900 dark:text-slate-100">क</strong>.</li>
+              <li>Pressing <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-800">k</code> outputs the matra sign <strong class="text-slate-900 dark:text-slate-100">ा</strong>.</li>
+              <li>Pressing <code class="font-mono text-xs px-1 rounded bg-slate-100 dark:bg-slate-800">f</code> outputs the chhoti-ee matra sign <strong class="text-slate-900 dark:text-slate-100">ि</strong>.</li>
+            </ul>
+            <p class="mt-3">
+              Because conjuncts and half-letters require specific shift sequences, standard typing tutors (likeJR or Sony Tutors) are widely used to prepare for government speed evaluations.
+            </p>
+          </section>
+
+          <!-- Section 8: KrutiDev to Unicode / Mangal Font Converter -->
+          <section class="border border-slate-200/60 dark:border-slate-800/60 rounded-3xl bg-radial from-brand-50/20 via-white to-white dark:from-brand-950/10 dark:via-slate-900 dark:to-slate-900 p-6 sm:p-8 text-center">
+            <h2>KrutiDev to Unicode / Mangal Font Converter</h2>
+            <p class="text-sm leading-relaxed mb-6">
+              When documents typed in KrutiDev are uploaded online, shared on WhatsApp, or emailed, they appear as garbled English text to anyone who does not have the font installed. Standardize your files instantly using our free web utility.
+            </p>
+            <div class="max-w-md mx-auto">
+              <a
+                href="/krutidev-to-unicode"
+                class="w-full inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-brand-500 dark:hover:border-brand-500/40 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98"
+              >
+                <span>Try the KrutiDev to Unicode Converter →</span>
+              </a>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- FAQ Section (Reusing FAQ component) -->
+      <FAQ items={faqs} title="Frequently Asked Questions (FAQ)" />
+
+      <!-- Related Tools -->
+      <RelatedTools />
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .download-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .download-container h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .dark .download-container h2 {
+    color: #f8fafc;
+  }
+  
+  .download-container h2::before {
+    content: "";
+    display: inline-block;
+    width: 0.375rem;
+    height: 1.25rem;
+    border-radius: 0.125rem;
+    background-color: #ea580c;
+  }
+  
+  .download-container p {
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin-bottom: 1rem;
+  }
+
+  /* Orange/branded download button */
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ea580c; /* Branded Orange 600 */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.25), 0 2px 4px -2px rgba(234, 88, 12, 0.2);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    min-height: 44px;
+  }
+  
+  .download-btn:hover {
+    background-color: #c2410c; /* Branded Orange 700 */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.35), 0 4px 6px -4px rgba(234, 88, 12, 0.3);
+  }
+  
+  .download-btn:active {
+    transform: translateY(0);
+    scale: 0.98;
+  }
+  
+  /* Clean table styling */
+  .font-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.825rem;
+    text-align: left;
+    background-color: transparent;
+  }
+  
+  .font-table th, .font-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .dark .font-table th, .dark .font-table td {
+    border-bottom: 1px solid #1e293b;
+  }
+  
+  .font-table th {
+    background-color: #f8fafc;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .dark .font-table th {
+    background-color: #0f172a;
+    color: #cbd5e1;
+  }
+  
+  .font-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .font-table tr:hover {
+    background-color: #f8fafc/50;
+  }
+  
+  .dark .font-table tr:hover {
+    background-color: #1e293b/30;
+  }
+</style>
+
+

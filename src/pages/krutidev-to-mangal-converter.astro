@@ -1,0 +1,276 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Converter from '../components/Converter.astro';
+import HowToUse from '../components/HowToUse.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedTools from '../components/RelatedTools.astro';
+import { CONVERTERS } from '../config/converters';
+
+const converterInfo = CONVERTERS.find(c => c.id === 'krutidev-to-mangal');
+if (!converterInfo) {
+  throw new Error("Converter configuration for ID 'krutidev-to-mangal' not found in registry.");
+}
+
+const faqs = converterInfo.faq;
+
+// Generate JSON-LD schemas
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "KrutiDev to Mangal Converter – Free Online Tool",
+  "description": "Convert KrutiDev text to Mangal Unicode font online, free and instantly. Paste your KrutiDev text and get properly formatted Mangal/Unicode Hindi text in seconds.",
+  "url": new URL('/krutidev-to-mangal-converter/', Astro.site || 'https://fontconverterhub.com').href,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Font Converter Hub",
+    "url": "https://fontconverterhub.com",
+    "logo": "https://fontconverterhub.com/favicon.svg"
+  }
+};
+
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "KrutiDev to Mangal Converter",
+  "description": "Free browser-based online tool to convert KrutiDev 010 visual typewriter text to standard Mangal Devanagari Unicode text instantly.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript.",
+  "url": new URL('/krutidev-to-mangal-converter/', Astro.site || 'https://fontconverterhub.com').href
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const schemas = [pageSchema, appSchema, faqSchema];
+---
+
+<Layout
+  title="KrutiDev to Mangal Converter – Free Online Tool"
+  description="Convert KrutiDev text to Mangal Unicode font online, free and instantly. Paste your KrutiDev text and get properly formatted Mangal/Unicode Hindi text in seconds."
+  schema={schemas}
+>
+  <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 animate-fade-in">
+    <div class="max-w-[1600px] w-[96%] mx-auto px-2 sm:px-4 lg:px-6 space-y-8">
+      
+      <!-- Converter Section (Converter first, above fold) -->
+      <Converter
+        direction="krutidev-to-mangal"
+        inputPlaceholder={converterInfo.placeholders.input}
+        outputPlaceholder={converterInfo.placeholders.output}
+        swapTarget="/mangal-to-krutidev-converter"
+        examples={converterInfo.examples}
+        inputLabel="KrutiDev Text"
+        outputLabel="Mangal Text"
+      />
+
+      <!-- Compact Utility Title -->
+      <div class="text-left select-none max-w-5xl pl-1">
+        <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-none">
+          KrutiDev to Mangal Converter (Free, Instant, Online)
+        </h1>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-none">
+          Convert KrutiDev text to Mangal Unicode font online, free and instantly.
+        </p>
+        
+        <!-- Disambiguation Links -->
+        <div class="flex gap-2.5 flex-wrap mt-5 select-text">
+          <a
+            href="/mangal-to-krutidev-converter/"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 text-[13px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-350 dark:hover:text-slate-100 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 transition-all duration-200 active:scale-98 focus:outline-hidden focus:ring-2 focus:ring-brand-500/20 select-none no-underline"
+          >
+            <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            Reverse: Mangal to KrutiDev
+          </a>
+          <a
+            href="/krutidev-to-unicode/"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 text-[13px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-350 dark:hover:text-slate-100 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 transition-all duration-200 active:scale-98 focus:outline-hidden focus:ring-2 focus:ring-brand-500/20 select-none no-underline"
+          >
+            <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Need Unicode instead? KrutiDev to Unicode
+          </a>
+        </div>
+      </div>
+
+      <!-- How To Use (How to use second) -->
+      <HowToUse
+        title={converterInfo.howTo.title}
+        steps={converterInfo.howTo.steps}
+        type={converterInfo.howTo.type}
+      />
+
+      <!-- Custom Content Sections (About Section layout) -->
+      <section class="max-w-5xl mx-auto my-10 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-2xs animate-fade-in">
+        <h2 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-3.5 flex items-center gap-2 select-none tracking-tight">
+          <svg class="w-4.5 h-4.5 text-brand-500 dark:text-brand-450" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Detailed Guide: KrutiDev to Mangal Conversion
+        </h2>
+        <div class="text-sm text-slate-650 dark:text-slate-350 space-y-6 leading-relaxed font-normal">
+          <!-- Section 1: What is KrutiDev to Mangal Conversion? -->
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">What is KrutiDev to Mangal Conversion?</h3>
+            <p>
+              <strong>KrutiDev</strong> (or Kruti Dev) is a visual-only legacy font family widely used in India for Hindi and Marathi typing. It utilizes the Remington typewriter layout, mapping visual Devanagari glyphs to standard English keyboard keycodes (meaning typing a "d" renders as "क"). While excellent for offline publishing, KrutiDev text is unreadable on the internet, emails, and mobile phones, displaying instead as garbled English strings unless the specific font file is installed.
+            </p>
+            <p class="mt-3">
+              <strong>Mangal</strong> is the default, pre-installed Devanagari Unicode font shipped with Microsoft Windows. Unlike KrutiDev, Unicode text encodes the semantic value of the characters, making it natively readable across all modern operating systems, web browsers, and devices (including Android and iOS) without requiring custom font downloads. Converting KrutiDev to Mangal translates the typewriter visual layout into standard digital Unicode characters.
+            </p>
+          </div>
+
+          <!-- Section 2: How to Convert KrutiDev to Mangal Font Online -->
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">How to Convert KrutiDev to Mangal Font Online</h3>
+            <p>
+              Converting your legacy documents to Mangal Unicode is quick and simple. Follow these steps:
+            </p>
+            <ol class="list-decimal pl-5 space-y-2 mt-2 text-sm">
+              <li>Open your legacy document (e.g., in Microsoft Word) and select the KrutiDev text you wish to convert. Copy it to your clipboard.</li>
+              <li>Paste the copied text into the <strong>KrutiDev Text</strong> input box at the top of this page.</li>
+              <li>The tool will automatically process the text and display the converted output in the <strong>Mangal Text</strong> box in real time.</li>
+              <li>Click the <strong>Copy Text</strong> button to copy the output to your clipboard, or click <strong>Download TXT</strong> to save the converted Devanagari file to your device.</li>
+            </ol>
+            <p class="mt-3">
+              If you need to install the legacy visual font offline for typing exams or legal documentation, you can refer to our <a href="/krutidev-font-download/" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline">KrutiDev Font Free Download</a> page.
+            </p>
+          </div>
+
+          <!-- Section 3: KrutiDev to Mangal vs KrutiDev to Unicode -->
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">KrutiDev to Mangal vs KrutiDev to Unicode — What's the Difference?</h3>
+            <p>
+              A common point of confusion is the difference between converting to "Mangal" and converting to "Unicode". In short, they are practically the same thing. Here is an overview of the distinctions:
+            </p>
+            
+            <div class="overflow-x-auto my-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+              <table class="font-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Unicode</th>
+                    <th>Mangal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-bold">Definition</td>
+                    <td>Universal character encoding standard for all digital scripts.</td>
+                    <td>A specific TrueType Devanagari font created by Microsoft.</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Scope</td>
+                    <td>Applies globally across all operating systems, platforms, and databases.</td>
+                    <td>A single font file that renders Devanagari Unicode characters.</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Interoperability</td>
+                    <td>Readable on any modern device (mobile, PC) natively.</td>
+                    <td>Shipped by default on Windows; alternative Unicode fonts (like Kokila or Aparajita) render the exact same text.</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Compatibility</td>
+                    <td colspan="2" class="text-center bg-slate-50/50 dark:bg-slate-900/50 font-semibold">
+                      Converting to Unicode produces Devanagari text that is 100% compatible with the Mangal font.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <p class="mt-3">
+              For more information on general Unicode conversions, you can check our standard <a href="/krutidev-to-unicode/" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline">Krutidev to Unicode Converter</a>.
+            </p>
+          </div>
+
+          <!-- Section 4: Common Use Cases for KrutiDev to Mangal Conversion -->
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">Common Use Cases for KrutiDev to Mangal Conversion</h3>
+            <ul class="list-disc pl-5 space-y-2 mt-2 text-sm">
+              <li><strong>Official and Judicial Filing:</strong> Preparing petitions, briefs, and official representations for government portals and courts that mandate standard Unicode formatting.</li>
+              <li><strong>Web Publishing and SEO:</strong> Converting old offline articles, books, or legal drafts into web-ready text that search engines like Google can crawl and index.</li>
+              <li><strong>Mobile Sharing:</strong> Sharing typed materials via messaging services like WhatsApp, Telegram, or email where legacy visual fonts cannot render.</li>
+              <li><strong>Database Migration:</strong> Importing historical data typed in classic Remington formats into modern relational databases that require standard UTF-8 encoding.</li>
+            </ul>
+            <p class="mt-3">
+              To reverse this process and convert standard digital Devanagari text back to typewriter visual codes, you will be able to use our upcoming <a href="/mangal-to-krutidev-converter/" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline">Mangal to KrutiDev Converter</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Tools -->
+      <RelatedTools currentPath="/krutidev-to-mangal-converter" />
+
+      <!-- FAQ Section (Reusing FAQ component) -->
+      <FAQ items={faqs} />
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Custom heading spacing inside the detailed guide card */
+  h3 {
+    margin-top: 1.5rem;
+  }
+  
+  /* Clean table styling matching keyboard layout page */
+  .font-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.825rem;
+    text-align: left;
+    background-color: transparent;
+  }
+  
+  .font-table th, .font-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .dark .font-table th, .dark .font-table td {
+    border-bottom: 1px solid #1e293b;
+  }
+  
+  .font-table th {
+    background-color: #f8fafc;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .dark .font-table th {
+    background-color: #0f172a;
+    color: #cbd5e1;
+  }
+  
+  .font-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .font-table tr:hover {
+    background-color: rgba(248, 250, 252, 0.5);
+  }
+  
+  .dark .font-table tr:hover {
+    background-color: rgba(30, 41, 59, 0.3);
+  }
+</style>

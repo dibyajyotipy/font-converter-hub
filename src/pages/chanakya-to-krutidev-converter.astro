@@ -6,9 +6,9 @@ import FAQ from '../components/FAQ.astro';
 import RelatedTools from '../components/RelatedTools.astro';
 import { CONVERTERS } from '../config/converters';
 
-const converterInfo = CONVERTERS.find(c => c.id === 'krutidev-to-unicode');
+const converterInfo = CONVERTERS.find(c => c.id === 'chanakya-to-krutidev');
 if (!converterInfo) {
-  throw new Error("Converter configuration for ID 'krutidev-to-unicode' not found in registry.");
+  throw new Error("Converter configuration for ID 'chanakya-to-krutidev' not found in registry.");
 }
 
 const faqs = converterInfo.faq;
@@ -17,9 +17,9 @@ const faqs = converterInfo.faq;
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "KrutiDev to Unicode Converter – Free Online Tool (KrutiDev 010)",
-  "description": "Convert KrutiDev 010 Hindi text to Unicode (Mangal) online, free and instantly. Paste your KrutiDev text and get clean Unicode output for Word, web, WhatsApp, and Marathi documents.",
-  "url": new URL('/krutidev-to-unicode/', Astro.site || 'https://fontconverterhub.com').href,
+  "name": "Chanakya to KrutiDev Converter – Free Online Tool",
+  "description": "Convert Chanakya Hindi text to KrutiDev 010 font online, free and instantly.",
+  "url": new URL('/chanakya-to-krutidev-converter/', Astro.site || 'https://fontconverterhub.com').href,
   "publisher": {
     "@type": "Organization",
     "name": "Font Converter Hub",
@@ -31,12 +31,12 @@ const pageSchema = {
 const appSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "KrutiDev to Unicode Converter",
-  "description": "Convert KrutiDev 010 Hindi text to Unicode (Mangal) online, free and instantly. Paste your KrutiDev text and get clean Unicode output.",
+  "name": "Chanakya to KrutiDev Converter",
+  "description": "Convert Chanakya Hindi text to KrutiDev 010 font online, free and instantly.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "All",
   "browserRequirements": "Requires JavaScript.",
-  "url": new URL('/krutidev-to-unicode/', Astro.site || 'https://fontconverterhub.com').href
+  "url": new URL('/chanakya-to-krutidev-converter/', Astro.site || 'https://fontconverterhub.com').href
 };
 
 const faqSchema = {
@@ -56,8 +56,8 @@ const schemas = [pageSchema, appSchema, faqSchema];
 ---
 
 <Layout
-  title="KrutiDev to Unicode Converter – Free Online Tool (KrutiDev 010)"
-  description="Convert KrutiDev 010 Hindi text to Unicode (Mangal) online, free and instantly. Paste your KrutiDev text and get clean Unicode output for Word, web, WhatsApp, and Marathi documents."
+  title="Chanakya to KrutiDev Converter – Free Online Tool"
+  description="Convert Chanakya Hindi text to KrutiDev 010 font online, free and instantly."
   schema={schemas}
 >
   <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 animate-fade-in">
@@ -65,43 +65,43 @@ const schemas = [pageSchema, appSchema, faqSchema];
       
       <!-- Converter Section (Converter first, above fold) -->
       <Converter
-        direction="krutidev-to-unicode"
+        direction="chanakya-to-krutidev"
         inputPlaceholder={converterInfo.placeholders.input}
         outputPlaceholder={converterInfo.placeholders.output}
-        swapTarget="/unicode-to-krutidev"
+        swapTarget="/krutidev-to-chanakya-converter"
         examples={converterInfo.examples}
-        inputLabel="KrutiDev Text"
-        outputLabel="Unicode Text (Mangal)"
+        inputLabel="Chanakya Text"
+        outputLabel="KrutiDev Text"
       />
 
       <!-- Compact Utility Title and Disambiguation Notice -->
       <div class="text-left select-none max-w-5xl pl-1">
         <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-none">
-          KrutiDev to Unicode Converter (Free, Online, KrutiDev 010)
+          Chanakya to KrutiDev Converter (Free, Online)
         </h1>
         <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-none">
-          Paste your KrutiDev (or KrutiDev 010) Hindi text below and convert it to Unicode in one click — free, instant, and no login required. Works for Hindi and Marathi documents, government files, old DTP content, and anywhere you need text to display correctly on modern devices without installing a special font.
+          Paste your Chanakya Hindi text below and convert it to KrutiDev (KrutiDev 010) font in one click — free, instant, and no login required. Useful for moving content from Chanakya-based newspaper and DTP systems into KrutiDev format for government forms, typing exams, and legacy workflows.
         </p>
         
         <!-- Disambiguation Links -->
         <div class="flex gap-2.5 flex-wrap mt-5 select-text">
           <a
-            href="/unicode-to-krutidev/"
+            href="/krutidev-to-chanakya-converter/"
             class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 text-[13px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-350 dark:hover:text-slate-100 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 transition-all duration-200 active:scale-98 focus:outline-hidden focus:ring-2 focus:ring-brand-500/20 select-none no-underline"
           >
             <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
             </svg>
-            Reverse: Unicode to KrutiDev
+            Reverse: KrutiDev to Chanakya
           </a>
           <a
-            href="/krutidev-to-chanakya-converter/"
+            href="/krutidev-to-unicode/"
             class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 text-[13px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-350 dark:hover:text-slate-100 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 transition-all duration-200 active:scale-98 focus:outline-hidden focus:ring-2 focus:ring-brand-500/20 select-none no-underline"
           >
             <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            Need Chanakya font? KrutiDev to Chanakya
+            Need Unicode instead? KrutiDev to Unicode
           </a>
         </div>
       </div>
@@ -119,45 +119,39 @@ const schemas = [pageSchema, appSchema, faqSchema];
           <svg class="w-4.5 h-4.5 text-brand-500 dark:text-brand-450" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          Detailed Guide: KrutiDev to Unicode Conversion
+          Detailed Guide: Chanakya to KrutiDev Conversion
         </h2>
         <div class="text-sm text-slate-650 dark:text-slate-350 space-y-6 leading-relaxed font-normal">
           
-          <!-- Section 1: What Is KrutiDev to Unicode Conversion? -->
+          <!-- Section 1 -->
           <div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">What Is KrutiDev to Unicode Conversion?</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">What Is Chanakya to KrutiDev Conversion?</h3>
             <p>
-              KrutiDev (also written Kruti Dev or KrutiDev 010) is a legacy non-Unicode Hindi font that has been used across Indian government offices, courts, typing institutes, and old DTP/print software since the 1990s. It maps Hindi glyphs onto English ASCII keys in a non-standard way, which means KrutiDev text only displays correctly if the exact same font is installed — on a phone, website, or any modern app without that font, it shows up as garbled symbols.
+              Chanakya and KrutiDev are both legacy, non-Unicode Hindi fonts that map Devanagari glyphs onto English keyboard keys — but each uses its own distinct mapping. Chanakya has been widely used in Indian newspaper and print publishing for decades, while KrutiDev is more common in government offices and typing examinations.
             </p>
             <p class="mt-2.5">
-              Unicode is the universal standard used by every modern device, browser, and operating system. Converting KrutiDev to Unicode takes that old ASCII-mapped text and rebuilds it as proper Devanagari Unicode — readable anywhere, searchable, copy-paste friendly, and compatible with Mangal, Nirmala UI, or any other Unicode Hindi font.
-            </p>
-            <p class="mt-2.5">
-              This tool also correctly repositions characters like ikar (ि) and reph (र्), which sit in a different order in KrutiDev than they do in Unicode — a common source of broken conversions in cheaper tools.
+              This tool converts your Chanakya text so it displays correctly when the KrutiDev 010 font is applied, handling the character and conjunct differences between the two encodings automatically.
             </p>
             <p class="mt-2.5 text-xs italic text-slate-500 dark:text-slate-400">
-              Note: If your KrutiDev text currently displays as symbols like dsfjsd Á%hkjk█ in a plain text editor, that's expected — it just means the KrutiDev 010 font isn't applied. Paste it into the tool above as-is; you don't need to "fix" it first.
+              Note: After conversion, select the output text and apply the KrutiDev 010 font in your word processor to see correct Hindi — the raw output will look like unrelated English characters until the font is applied.
             </p>
           </div>
 
-          <!-- Section 2: How to Convert KrutiDev to Unicode Online -->
+          <!-- Section 2 -->
           <div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">How to Convert KrutiDev to Unicode Online</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">How to Convert Chanakya to KrutiDev Online</h3>
             <ol class="list-decimal pl-5 space-y-2 mt-2 text-sm">
-              <li>Paste your KrutiDev (KrutiDev 010) text into the input box above — copy it directly from Word, PDF, or wherever it currently lives.</li>
-              <li>Click Convert to Unicode.</li>
-              <li>Copy the Unicode output — it will display correctly in any standard font like Mangal or Nirmala UI, no special font needed.</li>
-              <li>Paste it into Word, WhatsApp, a website, or any Unicode-compatible app.</li>
+              <li>Paste your Chanakya text into the input box above.</li>
+              <li>Click Convert to KrutiDev.</li>
+              <li>Copy the output text.</li>
+              <li>Paste it into your document and apply the KrutiDev 010 font.</li>
+              <li>Your Hindi text will now display correctly in KrutiDev format.</li>
             </ol>
-            <p class="mt-3">
-              For Excel files, paste each KrutiDev cell's content into the converter individually, or copy a column at a time — the tool handles multi-line text in a single pass.
-            </p>
           </div>
 
-          <!-- Section 3: KrutiDev to Unicode — Comparison Table -->
+          <!-- Section 3 -->
           <div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">KrutiDev to Unicode — Comparison Table</h3>
-            
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">Chanakya to KrutiDev vs Other Conversions</h3>
             <div class="overflow-x-auto my-4 border border-slate-200 dark:border-slate-800 rounded-xl">
               <table class="font-table">
                 <thead>
@@ -168,35 +162,28 @@ const schemas = [pageSchema, appSchema, faqSchema];
                 </thead>
                 <tbody>
                   <tr>
+                    <td class="font-bold">Chanakya to KrutiDev</td>
+                    <td>Convert legacy Chanakya text &rarr; KrutiDev 010 font encoding</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">KrutiDev to Chanakya</td>
+                    <td>The reverse — see our <a href="/krutidev-to-chanakya-converter/" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline">KrutiDev to Chanakya Converter</a></td>
+                  </tr>
+                  <tr>
                     <td class="font-bold">KrutiDev to Unicode</td>
-                    <td>Convert legacy KrutiDev font text &rarr; universal Unicode (Mangal-compatible)</td>
-                  </tr>
-                  <tr>
-                    <td class="font-bold">KrutiDev 010 to Unicode</td>
-                    <td>Same thing — "010" is the specific, most common KrutiDev version</td>
-                  </tr>
-                  <tr>
-                    <td class="font-bold">KrutiDev to Mangal</td>
-                    <td>Same result — Mangal is the most widely used Unicode Hindi font, so converting "to Unicode" and "to Mangal" produce the same text</td>
-                  </tr>
-                  <tr>
-                    <td class="font-bold">Unicode to KrutiDev</td>
-                    <td>The reverse — see our <a href="/unicode-to-krutidev/" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline">Unicode to KrutiDev Converter</a></td>
+                    <td>A different conversion — universal Unicode. See our <a href="/krutidev-to-unicode/" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline">KrutiDev to Unicode Converter</a></td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
 
-          <!-- Section 4: Who Needs to Convert KrutiDev to Unicode? -->
+          <!-- Section 4 -->
           <div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">Who Needs to Convert KrutiDev to Unicode?</h3>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">Who Needs to Convert Chanakya to KrutiDev?</h3>
             <ul class="list-disc pl-5 space-y-2 mt-2 text-sm">
-              <li><strong>Government and court staff</strong> holding decades of old KrutiDev-formatted letters, judgments, and records who need to digitize them into a searchable, future-proof Unicode format.</li>
-              <li><strong>Marathi and Hindi typists</strong> — KrutiDev was widely used for Marathi typing in Maharashtra government offices too, not just Hindi; this tool converts both correctly.</li>
-              <li><strong>Students and typing exam candidates</strong> who learned on KrutiDev-based typing software but need Unicode output for online forms, applications, and modern documents.</li>
-              <li><strong>Web publishers and bloggers</strong> with old KrutiDev-era Hindi content that displays as broken symbols on today's websites and needs to be restored to readable Unicode for SEO and accessibility.</li>
-              <li><strong>Office and DTP professionals</strong> migrating old press/print files into modern Unicode-based publishing workflows.</li>
+              <li><strong>Government employees and clerks</strong> who receive typed materials, articles, or books in legacy Chanakya format from external designers or publishers but must submit the files in standard KrutiDev 010 format to meet administrative guidelines or portal submission rules.</li>
+              <li><strong>DTP operators and publishers</strong> who work with mixed legacy print files, converting older media layout elements (often styled in Chanakya for publishing presses) back to KrutiDev for compatibility with typing examinations, local offices, or general documentation.</li>
             </ul>
           </div>
 
@@ -204,7 +191,7 @@ const schemas = [pageSchema, appSchema, faqSchema];
       </section>
 
       <!-- Related Tools -->
-      <RelatedTools currentPath="/krutidev-to-unicode" />
+      <RelatedTools currentPath="/chanakya-to-krutidev-converter" />
 
       <!-- FAQ Section (Reusing FAQ component) -->
       <FAQ items={faqs} />

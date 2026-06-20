@@ -1,10 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TrustStrip from '../components/TrustStrip.astro';
 import FAQ from '../components/FAQ.astro';
-import RelatedTools from '../components/RelatedTools.astro';
 
 // JSON-LD schemas for homepage SEO
+const faqs = [
+  {
+    q: "How does the KrutiDev to Unicode conversion work?",
+    a: "KrutiDev encodes each Devanagari character as a specific keyboard key. Our converter holds a complete lookup table mapping every KrutiDev key position to its correct Unicode Devanagari code point — including vowel matras, half-consonants, conjuncts, and Devanagari digits. The mapping runs entirely in your browser using JavaScript, with no server involvement."
+  },
+  {
+    q: "Is this KrutiDev converter free to use?",
+    a: "Yes — completely free, with no word limit, no login, and no paywall. All conversion tools on Font Converter Hub are and will remain free."
+  },
+  {
+    q: "Is my Hindi text private and secure?",
+    a: "Yes. Conversion runs entirely client-side in JavaScript — your text never leaves your device and is never sent to our servers or any third party. You can disconnect from the internet after the page loads and the converter will still work."
+  },
+  {
+    q: "Does the converter handle complex Devanagari conjuncts correctly?",
+    a: "Yes. The engine handles complex conjuncts like स्त्र, क्ष, ज्ञ, and त्र, correct reph (र्) placement, half-consonants, and Devanagari numerals — the cases where most basic converters produce incorrect output. It has been tested against real document text including government forms and Hindi newspaper copy."
+  },
+  {
+    q: "What happens with English words mixed into KrutiDev text?",
+    a: "Legacy fonts like KrutiDev map Devanagari characters onto the same keyboard positions as English letters — so the converter cannot tell whether a Latin \"D\" in your input is an English letter or a KrutiDev Hindi keystroke. For best results, keep English words, names, and abbreviations separate from your KrutiDev text and add them back after converting."
+  },
+  {
+    q: "Do I need to install any fonts?",
+    a: "Not to use the converter. For Unicode output (the most common case), no font installation is needed — Unicode Devanagari renders natively on all modern devices. For legacy font output like Mangal or Chanakya, you'll need that font installed in your word processor to view the result correctly after pasting."
+  },
+  {
+    q: "Does this work for Sanskrit text too?",
+    a: "Yes — the converter supports the full Devanagari character set used in KrutiDev, which covers both Hindi and Sanskrit including extended conjuncts and special characters used in Sanskrit typography."
+  },
+  {
+    q: "Is there a character or word limit?",
+    a: "No limit at all. Since conversion happens in your browser, you can paste entire documents — speed depends only on your device, not our servers."
+  }
+];
+
 const schemas = [
   {
     "@context": "https://schema.org",
@@ -25,25 +58,18 @@ const schemas = [
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any (Web Browser)",
     "browserRequirements": "Requires JavaScript."
-  }
-];
-
-const faqs = [
-  {
-    q: "How does the conversion process work?",
-    a: "The conversion maps legacy typewriter key combinations (like Krutidev 010) back to standard Unicode values (like Mangal font) and vice versa. It corrects character reordering, like the placing of 'chhoti-i' vowel signs and rephs, in real time."
   },
   {
-    q: "Is my text data private?",
-    a: "Yes. All conversion logic runs 100% locally in your web browser. No text is uploaded to any remote server, keeping your sensitive documents completely private and secure."
-  },
-  {
-    q: "Do I need to install any fonts to view the output?",
-    a: "No. Unicode Devanagari text is readable natively on all modern computers, smartphones, and web pages. However, to display the legacy Krutidev output correctly in offline editors like Microsoft Word, you must have the 'Krutidev 010' font installed on your system."
-  },
-  {
-    q: "Does the hub support Sanskrit characters?",
-    a: "Yes. It supports the full Devanagari script layout, which covers Hindi, Sanskrit, Marathi, Konkani, and Nepali languages typed in legacy or modern digital encodings."
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
   }
 ];
 ---
@@ -54,98 +80,446 @@ const faqs = [
   schema={schemas}
 >
   <div class="pt-6 pb-12 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
-      <!-- Compact Introduction (SECTION 1) -->
-      <div class="text-center max-w-3xl mx-auto mt-4 mb-6 select-none">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-3">
-          Font Converter Hub
-        </h1>
-        <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-          Convert between Krutidev, Unicode and other Hindi font formats instantly. Private, browser-based and free.
-        </p>
-      </div>
-
-      <!-- Tool Cards (SECTION 2) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-6">
-        <!-- Card 1: Krutidev to Unicode -->
-        <div class="flex flex-col border border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 p-6 shadow-sm hover:border-brand-500/50 dark:hover:border-brand-500/30 transition-all duration-200">
-          <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-bold bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-400 border border-brand-200/10">
-              Krutidev 010 to Unicode
+      <!-- SECTION 1 — HERO -->
+      <section class="py-6">
+        <div class="flex flex-col md:flex-row gap-6 items-start justify-between">
+          <!-- Left Column -->
+          <div class="flex-1 min-w-[280px]">
+            <span class="inline-block text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
+              Hindi font conversion · Free · Online
             </span>
-            <span class="inline-flex items-center justify-center w-5 h-5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs select-none">
-              अ
-            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight mb-4">
+              Convert <span class="text-brand-600 dark:text-brand-400">KrutiDev</span> to Unicode, Mangal & Chanakya — instantly
+            </h1>
+            <p class="text-sm text-slate-650 dark:text-slate-350 leading-relaxed mb-6 max-w-xl">
+              The most complete free online KrutiDev converter for Hindi text. 
+              Switch between legacy Devanagari fonts and standard Unicode in one 
+              click — no login, no file upload, nothing stored on any server. 
+              Works in your browser, even offline.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="#conversion-tools"
+                class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 rounded-xl shadow-xs transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 min-h-[40px]"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                </svg>
+                Start converting
+              </a>
+              <a
+                href="/krutidev-font-download"
+                class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-slate-500 min-h-[40px]"
+              >
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Download KrutiDev font
+              </a>
+            </div>
           </div>
-          <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-2 flex items-center gap-2">
-            <span>Krutidev</span>
-            <span class="text-slate-400 dark:text-slate-600">→</span>
-            <span>Unicode</span>
-          </h2>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-            Convert legacy Krutidev text into standard Unicode Devanagari.
-          </p>
-          <div class="mt-auto">
-            <a
-              href="/krutidev-to-unicode"
-              class="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 rounded-xl shadow-xs transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 active:scale-98 min-h-[40px]"
-            >
-              Open Converter
-            </a>
+
+          <!-- Right Column -->
+          <div class="w-full md:w-[220px] shrink-0">
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm text-xs">
+              <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
+                Live preview
+              </div>
+              
+              <div class="space-y-2">
+                <!-- Input Box -->
+                <div class="border border-slate-200 dark:border-slate-800 rounded-lg p-2.5 bg-slate-50/50 dark:bg-slate-950/50">
+                  <div class="text-[9px] font-bold text-slate-400 dark:text-slate-500 mb-1 uppercase tracking-wider">
+                    KrutiDev input
+                  </div>
+                  <div class="font-mono text-slate-700 dark:text-slate-300 break-all select-none">
+                    jk"Vª Hkk"kk fgUnh
+                  </div>
+                </div>
+                
+                <!-- Down Arrow -->
+                <div class="flex justify-center text-brand-500 dark:text-brand-400 py-0.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 13l-7 7-7-7m14-6l-7 7-7-7"/>
+                  </svg>
+                </div>
+                
+                <!-- Output Box -->
+                <div class="border border-brand-200/50 dark:border-brand-900/30 rounded-lg p-2.5 bg-[#EEEDFE] dark:bg-brand-950/20 text-brand-900 dark:text-brand-100">
+                  <div class="text-[9px] font-bold text-brand-600 dark:text-brand-400 mb-1 uppercase tracking-wider">
+                    Unicode output
+                  </div>
+                  <div class="font-semibold break-all select-none">
+                    राष्ट्र भाषा हिन्दी
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Card 2: Unicode to Krutidev -->
-        <div class="flex flex-col border border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 p-6 shadow-sm hover:border-brand-500/50 dark:hover:border-brand-500/30 transition-all duration-200">
-          <div class="flex items-center justify-between mb-4">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-bold bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-400 border border-brand-200/10">
-              Unicode to Krutidev 010
-            </span>
-            <span class="inline-flex items-center justify-center w-5 h-5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs select-none">
-              क
-            </span>
-          </div>
-          <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-2 flex items-center gap-2">
-            <span>Unicode</span>
-            <span class="text-slate-400 dark:text-slate-600">→</span>
-            <span>Krutidev</span>
+        <!-- Trust bar below hero -->
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-bold text-slate-400 dark:text-slate-500 mt-10 pt-6 border-t border-slate-200/60 dark:border-slate-800/40 select-none">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+            No uploads
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            Instant
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M3 3l3.393 3.393m0 0A9 9 0 0112 3v3M6.393 6.393L3 3m3.393 3.393l2.829 2.829m3.778-3.778A9 9 0 0118 12h-3m-6.393-2.607a3.5 3.5 0 014.95 0m0 0L12 12"/>
+            </svg>
+            Works offline
+          </span>
+          <span class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5h6M9 9h6M9 5a3 3 0 110 6H9l6 6"/>
+            </svg>
+            Always free
+          </span>
+        </div>
+      </section>
+
+      <!-- SECTION 2 — ALL CONVERSION TOOLS -->
+      <section id="conversion-tools" class="border-t border-slate-200/60 dark:border-slate-800/60 pt-10">
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-6">
+          <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+            All conversion tools
           </h2>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-            Convert standard Unicode Devanagari text back to Krutidev.
-          </p>
-          <div class="mt-auto">
-            <a
-              href="/unicode-to-krutidev"
-              class="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 rounded-xl shadow-xs transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 active:scale-98 min-h-[40px]"
-            >
-              Open Converter
-            </a>
+          <span class="text-xs text-slate-400 dark:text-slate-500 mt-1 sm:mt-0 font-medium">
+            Free · browser-based · no word limit
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <!-- Card 1: KrutiDev ↔ Unicode -->
+          <div class="flex flex-col border-[0.5px] border-slate-200 dark:border-slate-800/80 rounded-lg bg-white dark:bg-slate-900 p-5 shadow-2xs hover:border-brand-500/60 dark:hover:border-brand-400/60 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-7 h-7 shrink-0 flex items-center justify-center rounded bg-[#EEEDFE] dark:bg-brand-950/40 text-brand-600 dark:text-brand-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                </svg>
+              </div>
+              <h3 class="font-extrabold text-slate-900 dark:text-slate-100 text-sm">
+                KrutiDev ↔ Unicode
+              </h3>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-5 flex-grow">
+              The standard KrutiDev to Unicode Devanagari conversion for modern systems, web publishing, and search visibility.
+            </p>
+            <div class="space-y-2 mt-auto">
+              <a
+                href="/krutidev-to-unicode/"
+                class="block w-full text-center py-2 px-3 bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer min-h-[36px]"
+              >
+                KrutiDev → Unicode
+              </a>
+              <a
+                href="/unicode-to-krutidev/"
+                class="block w-full text-center py-2 px-3 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-colors cursor-pointer min-h-[36px]"
+              >
+                Unicode → KrutiDev
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: KrutiDev ↔ Mangal -->
+          <div class="flex flex-col border-[0.5px] border-slate-200 dark:border-slate-800/80 rounded-lg bg-white dark:bg-slate-900 p-5 shadow-2xs hover:border-brand-500/60 dark:hover:border-brand-400/60 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-7 h-7 shrink-0 flex items-center justify-center rounded bg-[#E1F5EE] dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-450">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <h3 class="font-extrabold text-slate-900 dark:text-slate-100 text-sm">
+                KrutiDev ↔ Mangal
+              </h3>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-5 flex-grow">
+              Convert KrutiDev to Mangal font for government forms, NIC portals, court submissions, and Hindi typing exams.
+            </p>
+            <div class="space-y-2 mt-auto">
+              <a
+                href="/krutidev-to-mangal-converter/"
+                class="block w-full text-center py-2 px-3 bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer min-h-[36px]"
+              >
+                KrutiDev → Mangal
+              </a>
+              <a
+                href="/mangal-to-krutidev-converter/"
+                class="block w-full text-center py-2 px-3 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-colors cursor-pointer min-h-[36px]"
+              >
+                Mangal → KrutiDev
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: KrutiDev ↔ Chanakya -->
+          <div class="flex flex-col border-[0.5px] border-slate-200 dark:border-slate-800/80 rounded-lg bg-white dark:bg-slate-900 p-5 shadow-2xs hover:border-brand-500/60 dark:hover:border-brand-400/60 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-7 h-7 shrink-0 flex items-center justify-center rounded bg-[#FAECE7] dark:bg-rose-950/40 text-rose-500 dark:text-rose-450">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                </svg>
+              </div>
+              <h3 class="font-extrabold text-slate-900 dark:text-slate-100 text-sm">
+                KrutiDev ↔ Chanakya
+              </h3>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-5 flex-grow">
+              Convert between KrutiDev and Chanakya font for Hindi newspaper DTP, PageMaker layouts, and print publishing.
+            </p>
+            <div class="space-y-2 mt-auto">
+              <a
+                href="/krutidev-to-chanakya-converter/"
+                class="block w-full text-center py-2 px-3 bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer min-h-[36px]"
+              >
+                KrutiDev → Chanakya
+              </a>
+              <a
+                href="/chanakya-to-krutidev-converter/"
+                class="block w-full text-center py-2 px-3 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-semibold rounded-lg transition-colors cursor-pointer min-h-[36px]"
+              >
+                Chanakya → KrutiDev
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Trust Strip (SECTION 3) -->
-      <TrustStrip className="pb-8 border-b border-slate-200/60 dark:border-slate-800/40 max-w-5xl mx-auto" />
-
-      <!-- Educational Content (SECTION 4) -->
-      <section class="max-w-5xl mx-auto my-8 text-slate-700 dark:text-slate-300">
-        <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-3">
-          Hindi Font Conversion Suite
+      <!-- SECTION 3 — WHY CONVERT KRUTIDEV TO UNICODE? -->
+      <section class="border-t border-slate-200/60 dark:border-slate-800/60 pt-10">
+        <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-4">
+          Why convert KrutiDev to Unicode?
         </h2>
-        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-          This suite provides high-performance conversion tools to translate text between legacy typewriter font encodings and modern standard Unicode Devanagari. Standardizing Devanagari typography is critical for the modern web, as visual-only fonts cannot be indexed by search engines or displayed on mobile devices.
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+          KrutiDev 010 — also known as Kruti Dev — was the dominant Hindi font 
+          across Indian government offices, DTP shops, and print publishing 
+          through the 1990s and 2000s. It works by mapping Devanagari glyphs 
+          directly onto English keyboard keys, which made it practical for 
+          typewriter-era workflows but created a fundamental problem: the text 
+          is unreadable without the font installed.
         </p>
+
+        <!-- Two-column comparison box -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <!-- Left Column -->
+          <div class="bg-slate-100/60 dark:bg-slate-900/60 rounded-xl p-5 border border-slate-200/40 dark:border-slate-800/40">
+            <div class="flex items-center gap-2 mb-3 text-red-650 dark:text-red-400 font-bold text-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+              KrutiDev text
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Not searchable by Google. Invisible to screen readers. Breaks 
+              on any system without the font. Cannot be stored in modern databases 
+              correctly.
+            </p>
+          </div>
+
+          <!-- Right Column -->
+          <div class="bg-[#EEEDFE] dark:bg-brand-950/20 rounded-xl p-5 border border-brand-200/40 dark:border-brand-900/20">
+            <div class="flex items-center gap-2 mb-3 text-brand-600 dark:text-brand-400 font-bold text-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+              Unicode Devanagari
+            </div>
+            <p class="text-xs sm:text-sm text-brand-900/90 dark:text-brand-200 leading-relaxed">
+              Indexed by search engines. Readable on every device. Works in 
+              WhatsApp, email, web pages, and government portals — no font needed.
+            </p>
+          </div>
+        </div>
+
         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-          By utilizing our offline-ready local converters, you can convert documents client-side without any security risks. This is highly useful for government workers, desktop publishers (DTP), translators, and authors dealing with legacy Krutidev font submissions.
+          Despite this, KrutiDev remains in active use across India — millions 
+          of documents, exam papers, court records, and newspaper archives exist 
+          only in legacy font format. Our free KrutiDev to Unicode converter 
+          handles the full character set including complex conjuncts (स्त्र, 
+          क्ष, ज्ञ), reph placement (र्), and Devanagari numerals — the tricky 
+          edge cases that simpler tools get wrong.
         </p>
       </section>
 
-      <!-- Related Converters Internal Linking -->
-      <RelatedTools />
+      <!-- SECTION 4 — WHO USES THIS TOOL? -->
+      <section class="border-t border-slate-200/60 dark:border-slate-800/60 pt-10">
+        <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+          Who uses this tool?
+        </h2>
+        <p class="text-xs text-slate-400 dark:text-slate-500 mt-1 mb-6 font-medium">
+          Real people with real daily workflows — not just hobbyists.
+        </p>
 
-      <!-- FAQ Section (FAQ at the bottom, just above footer) -->
-      <FAQ items={faqs} />
+        <div class="space-y-4">
+          <!-- Card 1 -->
+          <div class="border-l-2 border-brand-600 dark:border-brand-500 bg-slate-100/50 dark:bg-slate-900/40 p-4 rounded-r-lg">
+            <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+              Government typists & clerks
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-400 leading-relaxed">
+              Convert old KrutiDev documents into Mangal font for NIC 
+              portals, e-court filings, CPCT submissions, and official digital 
+              records that mandate Unicode-compliant Devanagari.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="border-l-2 border-brand-600 dark:border-brand-500 bg-slate-100/50 dark:bg-slate-900/40 p-4 rounded-r-lg">
+            <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+              Hindi newspaper & print DTP operators
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-400 leading-relaxed">
+              Switch between Chanakya font and KrutiDev when managing 
+              mixed-source layouts in PageMaker, CorelDraw, or InDesign setups 
+              common in Indian regional newspaper production.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="border-l-2 border-brand-600 dark:border-brand-500 bg-slate-100/50 dark:bg-slate-900/40 p-4 rounded-r-lg">
+            <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+              Hindi typing exam candidates & teachers
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-400 leading-relaxed">
+              Convert KrutiDev-formatted practice material and question 
+              papers into Unicode for use on modern exam systems, or vice versa 
+              for exams that still require legacy KrutiDev typing speed tests.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="border-l-2 border-brand-600 dark:border-brand-500 bg-slate-100/50 dark:bg-slate-900/40 p-4 rounded-r-lg">
+            <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+              Publishers, translators & content creators
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-650 dark:text-slate-400 leading-relaxed">
+              Digitise Hindi archives, convert scanned OCR output from 
+              legacy fonts, or prepare Devanagari content for websites, apps, and 
+              social media where Unicode is required.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5 — HOW TO CONVERT KRUTIDEV ONLINE -->
+      <section class="border-t border-slate-200/60 dark:border-slate-800/60 pt-10">
+        <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-2">
+          How to convert KrutiDev online — step by step
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+          Our online KrutiDev converter is designed to be usable without 
+          any technical knowledge. Here's the complete process:
+        </p>
+
+        <div class="grid grid-cols-1 gap-6">
+          <!-- Step 1 -->
+          <div class="flex gap-4">
+            <div class="w-7 h-7 shrink-0 flex items-center justify-center rounded-full bg-[#EEEDFE] dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 text-xs font-bold">
+              1
+            </div>
+            <div>
+              <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+                Choose your conversion pair
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Select the tool for your source and target font from the list above 
+                — KrutiDev to Unicode, KrutiDev to Mangal, KrutiDev to Chanakya, 
+                or any reverse direction.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex gap-4">
+            <div class="w-7 h-7 shrink-0 flex items-center justify-center rounded-full bg-[#EEEDFE] dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 text-xs font-bold">
+              2
+            </div>
+            <div>
+              <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+                Paste your KrutiDev text
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Copy your text from Word, Notepad, or any legacy document and paste 
+                it into the input box. There is no character or word limit.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex gap-4">
+            <div class="w-7 h-7 shrink-0 flex items-center justify-center rounded-full bg-[#EEEDFE] dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 text-xs font-bold">
+              3
+            </div>
+            <div>
+              <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+                Click Convert
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                The conversion runs instantly inside your browser — no waiting, no 
+                server call, no internet required after the page has loaded.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flex gap-4">
+            <div class="w-7 h-7 shrink-0 flex items-center justify-center rounded-full bg-[#EEEDFE] dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 text-xs font-bold">
+              4
+            </div>
+            <div>
+              <h3 class="font-extrabold text-sm text-slate-900 dark:text-slate-100 mb-1">
+                Copy, download, or share
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Use the Copy button to paste directly into your document, or 
+                download as a .txt file. For legacy font output (Mangal, Chanakya), 
+                apply the font in Word after pasting.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6 — UNDERSTANDING HINDI LEGACY FONTS -->
+      <section class="border-t border-slate-200/60 dark:border-slate-800/60 pt-10">
+        <h2 class="text-xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mb-6">
+          Understanding Hindi legacy fonts
+        </h2>
+
+        <div class="space-y-5">
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <strong class="font-bold text-slate-900 dark:text-slate-100">What is KrutiDev?</strong> KrutiDev (KrutiDev 010) is a non-Unicode Hindi font that dominated Indian typing from the 1990s onward. It encodes Devanagari characters by remapping them onto standard English keyboard positions — so the letter "d" in KrutiDev displays as "ि" (short i matra), not the English letter D. This made it practical for early Hindi DTP but invisible to any modern system that doesn't have the font.
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <strong class="font-bold text-slate-900 dark:text-slate-100">What is Mangal font?</strong> Mangal is a Unicode-compliant Devanagari font developed by Microsoft and bundled with Windows. Unlike KrutiDev, Mangal uses proper Unicode code points — making text stored in Mangal readable by search engines, screen readers, and any modern system. It is the mandated font for most Indian government digital workflows and e-governance portals.
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <strong class="font-bold text-slate-900 dark:text-slate-100">What is Chanakya font?</strong> Chanakya is another legacy non-Unicode Hindi font widely used in Indian newspaper and magazine publishing — particularly in PageMaker-based print workflows. Like KrutiDev, it uses its own proprietary character mapping incompatible with KrutiDev, which is why pasting KrutiDev text and applying Chanakya font produces garbled output rather than correct Hindi.
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <strong class="font-bold text-slate-900 dark:text-slate-100">KrutiDev vs Unicode — which should you use?</strong> For any new document, website, or system, use Unicode. For working with existing legacy archives, government systems that haven't upgraded, or DTP shops still running Chanakya or KrutiDev — that's exactly what this converter is for.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 7 — FAQ -->
+      <section class="border-t border-slate-200/60 dark:border-slate-800/60 pt-6">
+        <FAQ items={faqs} title="Frequently asked questions" />
+      </section>
 
     </div>
   </div>

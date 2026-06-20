@@ -69,6 +69,10 @@ export function convertKrutidevToUnicode(krutidevText: string): string {
   text = replaceAll(text, '\\"', '"');
   text = text.replace(/^\]oa/g, 'एवं').replace(/ \]oa/g, ' एवं');
   text = replaceAll(text, 'rRo', 'rÙo'); 
+  text = replaceAll(text, '¿k', 'क्ष');
+  text = replaceAll(text, '¿', 'क्ष्');
+  text = replaceAll(text, '¾', 'त्र');
+
 
   // 3. Core Array Mapping
   for (let i = 0; i < CHARS_KD.length; i++) {

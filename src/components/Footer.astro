@@ -1,10 +1,9 @@
 ---
-const currentYear = new Date().getFullYear();
 ---
 
 <footer class="border-t border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 py-12 transition-colors duration-200">
   <div class="max-w-[1600px] w-[96%] mx-auto px-2 sm:px-4 lg:px-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- About -->
       <div>
         <a href="/" class="flex items-center gap-2 mb-4 group min-h-[44px] w-fit" aria-label="Font Converter Hub Home">
@@ -16,7 +15,7 @@ const currentYear = new Date().getFullYear();
           </span>
         </a>
         <p class="text-xs sm:text-sm leading-relaxed max-w-sm">
-          A modern, secure, and fast developer utility for Hindi and Sanskrit font conversion. Convert Krutidev (classic typewriter font) to Unicode, and Unicode back to Krutidev seamlessly.
+          Free online tools for Hindi font conversion — KrutiDev, Unicode, Mangal, and Chanakya. Fast, private, browser-based.
         </p>
       </div>
 
@@ -25,18 +24,77 @@ const currentYear = new Date().getFullYear();
         <h3 class="font-semibold text-slate-900 dark:text-slate-100 text-sm tracking-wider uppercase mb-4">
           Conversion Utilities
         </h3>
-        <ul class="space-y-2 text-sm">
-          <li>
-            <a href="/krutidev-to-unicode" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[40px] inline-flex items-center">
-              Krutidev to Unicode
-            </a>
-          </li>
-          <li>
-            <a href="/unicode-to-krutidev" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[40px] inline-flex items-center">
-              Unicode to Krutidev
-            </a>
-          </li>
-        </ul>
+        <div class="space-y-4">
+          <!-- KrutiDev ↔ Unicode -->
+          <div>
+            <ul class="space-y-1 text-sm">
+              <li>
+                <a href="/krutidev-to-unicode" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[36px] inline-flex items-center">
+                  KrutiDev to Unicode
+                </a>
+              </li>
+              <li>
+                <a href="/unicode-to-krutidev" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[36px] inline-flex items-center">
+                  Unicode to KrutiDev
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="border-t border-slate-100 dark:border-slate-800/40 my-2"></div>
+
+          <!-- KrutiDev ↔ Mangal -->
+          <div>
+            <ul class="space-y-1 text-sm">
+              <li>
+                <a href="/krutidev-to-mangal-converter" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[36px] inline-flex items-center">
+                  KrutiDev to Mangal
+                </a>
+              </li>
+              <li>
+                <a href="/mangal-to-krutidev-converter" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[36px] inline-flex items-center">
+                  Mangal to KrutiDev
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="border-t border-slate-100 dark:border-slate-800/40 my-2"></div>
+
+          <!-- KrutiDev ↔ Chanakya -->
+          <div>
+            <ul class="space-y-1 text-sm">
+              <li>
+                <a href="/krutidev-to-chanakya-converter" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[36px] inline-flex items-center">
+                  KrutiDev to Chanakya
+                </a>
+              </li>
+              <li>
+                <a href="/chanakya-to-krutidev-converter" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors min-h-[36px] inline-flex items-center">
+                  Chanakya to KrutiDev
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="border-t border-slate-100 dark:border-slate-800/40 my-2"></div>
+
+          <!-- Resources -->
+          <div>
+            <ul class="space-y-1 text-sm">
+              <li>
+                <a href="/krutidev-font-download" class="hover:text-brand-700 dark:hover:text-brand-300 transition-colors min-h-[36px] inline-flex items-center font-medium text-brand-600 dark:text-brand-400">
+                  KrutiDev Font Download
+                </a>
+              </li>
+              <li>
+                <a href="/krutidev-keyboard-layout" class="hover:text-brand-700 dark:hover:text-brand-300 transition-colors min-h-[36px] inline-flex items-center font-medium text-brand-600 dark:text-brand-400">
+                  KrutiDev Keyboard Layout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <!-- Information & Legal -->
@@ -67,36 +125,15 @@ const currentYear = new Date().getFullYear();
           </li>
         </ul>
       </div>
-
-      <!-- Features / Privacy -->
-      <div>
-        <h3 class="font-semibold text-slate-900 dark:text-slate-100 text-sm tracking-wider uppercase mb-4">
-          Core Features
-        </h3>
-        <ul class="space-y-2.5 text-xs sm:text-sm">
-          <li class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            100% Client-side conversion
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Works Offline & Fast loading
-          </li>
-          <li class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            One-click Copy & Clear actions
-          </li>
-        </ul>
-      </div>
     </div>
 
     <!-- Bottom Bar -->
     <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
       <p>
-        &copy; {currentYear} Font Converter Hub. All rights reserved.
+        &copy; 2026 Font Converter Hub. All rights reserved.
       </p>
       <div class="flex gap-4">
-        <span class="text-slate-400 dark:text-slate-600 font-medium">Built with Astro & Tailwind CSS v4</span>
+        <span class="text-slate-400 dark:text-slate-600 font-medium">Made with ❤️ in India</span>
       </div>
     </div>
   </div>
