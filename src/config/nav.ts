@@ -37,5 +37,14 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "KrutiDev Font Download", href: "/krutidev-font-download", isAccent: true },
       { label: "KrutiDev Keyboard Layout", href: "/krutidev-keyboard-layout", isAccent: true }
     ]
+  },
+  {
+    label: "Preeti Tools",
+    links: [
+      { label: "Preeti to Unicode", href: "/preeti-to-unicode" },
+      { label: "Unicode to Preeti", href: "/unicode-to-preeti" },
+      { divider: true },
+      { label: "Preeti Font Download", href: "/preeti-font-download", isAccent: true }
+    ]
   }
 ];

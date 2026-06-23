@@ -278,6 +278,16 @@ const dropdownNavItems = NAV_ITEMS.filter(item => 'links' in item) as NavDropdow
   const setupDropdowns = () => {
     const containers = document.querySelectorAll('.dropdown-container');
 
+    const closeAllOtherDropdowns = (exceptPanel?: Element) => {
+      document.querySelectorAll('.dropdown-panel.show').forEach((p) => {
+        if (p !== exceptPanel) {
+          p.classList.remove('show');
+          const triggerEl = p.closest('.dropdown-container')?.querySelector('[data-dropdown-trigger]');
+          triggerEl?.setAttribute('aria-expanded', 'false');
+        }
+      });
+    };
+
     containers.forEach((container) => {
       const trigger = container.querySelector('[data-dropdown-trigger]');
       const panel = container.querySelector('.dropdown-panel');
@@ -288,6 +298,7 @@ const dropdownNavItems = NAV_ITEMS.filter(item => 'links' in item) as NavDropdow
 
       const toggleDropdown = (show: boolean) => {
         if (show) {
+          closeAllOtherDropdowns(panel);
           panel.classList.add('show');
           trigger.setAttribute('aria-expanded', 'true');
         } else {
@@ -383,14 +394,31 @@ const dropdownNavItems = NAV_ITEMS.filter(item => 'links' in item) as NavDropdow
 
       trigger.addEventListener('click', () => {
         const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-        trigger.setAttribute('aria-expanded', (!isExpanded).toString());
         
         if (!isExpanded) {
+          // Close all other mobile dropdowns first!
+          mobileTriggers.forEach((otherTrigger) => {
+            if (otherTrigger !== trigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+              const otherPanel = otherTrigger.nextElementSibling as HTMLElement;
+              if (otherPanel) {
+                otherPanel.classList.add('hidden');
+                otherPanel.classList.remove('flex');
+              }
+              const otherChevron = otherTrigger.querySelector('svg');
+              if (otherChevron) otherChevron.classList.remove('rotate-180');
+            }
+          });
+
+          // Open this one
+          trigger.setAttribute('aria-expanded', 'true');
           panel.classList.remove('hidden');
           panel.classList.add('flex');
           const chevron = trigger.querySelector('svg');
           if (chevron) chevron.classList.add('rotate-180');
         } else {
+          // Close this one
+          trigger.setAttribute('aria-expanded', 'false');
           panel.classList.add('hidden');
           panel.classList.remove('flex');
           const chevron = trigger.querySelector('svg');

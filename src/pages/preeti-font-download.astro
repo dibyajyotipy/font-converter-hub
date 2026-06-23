@@ -1,0 +1,349 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import RelatedTools from '../components/RelatedTools.astro';
+
+const breadcrumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Preeti Font Download' },
+];
+
+const faqs = [
+  {
+    q: "What is Preeti font used for?",
+    a: "Preeti is a legacy ASCII-based Nepali font used primarily in government offices, district administration, courts, and Nepali-language print media. It was the standard Nepali typing font before Unicode Devanagari became widely adopted."
+  },
+  {
+    q: "Is Preeti font free to download?",
+    a: "Yes, Preeti font is free to download and use for personal and professional purposes including government and office work."
+  },
+  {
+    q: "Why does my Nepali document show random English characters?",
+    a: "The document was likely typed in Preeti font. Without Preeti installed on your system, the text displays as its underlying ASCII characters (e.g. g]kfn instead of नेपाल). Install Preeti using the download above, or convert the text to Unicode using our free Preeti to Unicode converter so it works on any device without needing a font installed."
+  },
+  {
+    q: "What is the difference between Preeti and Kalimati?",
+    a: "Preeti is a legacy ASCII-based font — text typed in it is not real Unicode. Kalimati is a Unicode Devanagari font — text in Kalimati is proper Unicode and works on any modern device. Preeti is for opening old documents; Kalimati (or any Unicode font) is the right choice for new documents."
+  }
+];
+
+// Generate JSON-LD FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Preeti Font Download — Free Nepali Legacy Font (.OTF)",
+  "description": "Download Preeti font free for Windows and Mac. The classic legacy Nepali font used in government offices, newspapers, and DTP workflows. Free .OTF download, no sign-up.",
+  "url": new URL('/preeti-font-download', Astro.site || 'https://fontconverterhub.com').href,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Font Converter Hub",
+    "url": "https://fontconverterhub.com",
+    "logo": "https://fontconverterhub.com/favicon.svg"
+  }
+};
+
+const schemas = [pageSchema, faqSchema];
+---
+
+<Layout
+  title="Preeti Font Download — Free Nepali Legacy Font (.OTF)"
+  description="Download Preeti font free for Windows and Mac. The classic legacy Nepali font used in government offices, newspapers, and DTP workflows. Free .OTF download, no sign-up."
+  schema={schemas}
+>
+  <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5">
+    <div class="download-container px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbs} />
+
+      <!-- Main SEO Content Card -->
+      <div class="border border-slate-200/60 dark:border-slate-800/60 rounded-2xl bg-white dark:bg-slate-900 p-6 sm:p-10 shadow-xs mt-6 mb-10">
+        
+        <!-- H1 Hero Section -->
+        <div class="text-center mb-8">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 border border-orange-200/10 mb-4 select-none">
+            ⚡ Safe & Verified Download
+          </span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight mb-4">
+            Preeti Font Free Download
+          </h1>
+          <p class="text-sm sm:text-base text-slate-650 dark:text-slate-350 leading-relaxed max-w-2xl mx-auto">
+            Preeti is one of the most widely used legacy Nepali fonts, developed for typing Nepali (Devanagari) text before Unicode became the standard. It remains in active use in Nepali government offices, district courts, newspapers, and older publishing workflows. If you are opening old Nepali documents that display garbled characters, installing Preeti will restore them correctly.
+          </p>
+        </div>
+
+        <!-- Prominent Download Button Section -->
+        <div class="flex flex-col items-center justify-center p-8 rounded-2xl bg-slate-50 dark:bg-slate-950/40 border border-slate-200/60 dark:border-slate-800/60 text-center mb-10">
+          <div class="mb-4">
+            <span class="text-xs text-slate-500 dark:text-slate-400 block mb-1">File Name: <strong class="text-slate-800 dark:text-slate-200">Preeti.otf</strong></span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 block">File Size: <strong>41.3 KB</strong> | Format: <strong>OpenType Font (.otf)</strong></span>
+          </div>
+          
+          <a
+            href="/fonts/preeti.otf"
+            download="Preeti.otf"
+            class="download-btn group"
+            aria-label="Download Preeti Font file"
+          >
+            <svg class="w-5 h-5 mr-2 -ml-1 text-white group-hover:animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Preeti Font (.OTF)
+          </a>
+          
+          <span class="text-[11px] text-emerald-600 dark:text-emerald-450 mt-3 flex items-center gap-1.5 font-semibold">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Clean File: 0/70 Detections on VirusTotal
+          </span>
+        </div>
+
+        <!-- TrustStrip -->
+        <TrustStrip className="my-6 border-b border-slate-200/60 dark:border-slate-800/40 pb-6" />
+
+        <!-- Detailed Guide Content -->
+        <div class="space-y-10 text-slate-650 dark:text-slate-350">
+          
+          <!-- Section 1: Font Details -->
+          <section>
+            <h2>Preeti Font Details</h2>
+            <p>Below is a summary of the technical specifications for the Preeti legacy font:</p>
+            
+            <div class="overflow-x-auto my-4 border border-slate-200 dark:border-slate-800 rounded-xl">
+              <table class="font-table">
+                <thead>
+                  <tr>
+                    <th>Specification</th>
+                    <th>Detail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-bold">Font Name</td>
+                    <td>Preeti</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Format</td>
+                    <td>OpenType (.OTF)</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Language</td>
+                    <td>Nepali (Devanagari)</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Usage</td>
+                    <td>Government documents, newspapers, DTP</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">License</td>
+                    <td>Free to use</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">Compatible Systems</td>
+                    <td>Windows, macOS, Linux</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 2: Installation Instructions -->
+          <section>
+            <h2>How to Install Preeti Font</h2>
+            <p>Follow these step-by-step instructions to install the Preeti font on your system:</p>
+            
+            <div class="space-y-6 mt-4">
+              <div class="p-5 rounded-2xl border border-slate-150 dark:border-slate-850 bg-slate-50/20 dark:bg-slate-950/10">
+                <h3 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-2.5 flex items-center gap-2">
+                  <span class="flex items-center justify-center w-5 h-5 rounded-full bg-brand-500 text-white text-[11px]">1</span>
+                  Windows Installation
+                </h3>
+                <ol class="list-decimal pl-6 space-y-2 text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  <li>Download the <strong>Preeti.otf</strong> file using the button above.</li>
+                  <li>Right-click the downloaded file and select <strong>"Install"</strong> (or select <strong>"Install for all users"</strong> for system-wide administrative access).</li>
+                  <li>Open your document or word processor — Preeti will now appear in your font selection list.</li>
+                </ol>
+              </div>
+
+              <div class="p-5 rounded-2xl border border-slate-150 dark:border-slate-850 bg-slate-50/20 dark:bg-slate-950/10">
+                <h3 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-2.5 flex items-center gap-2">
+                  <span class="flex items-center justify-center w-5 h-5 rounded-full bg-brand-500 text-white text-[11px]">2</span>
+                  macOS Installation
+                </h3>
+                <ol class="list-decimal pl-6 space-y-2 text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  <li>Download the <strong>Preeti.otf</strong> file to your computer.</li>
+                  <li>Double-click the file to open the system Font Book application.</li>
+                  <li>Click <strong>"Install Font"</strong> in the dialog box — Preeti is now available in all applications.</li>
+                </ol>
+              </div>
+            </div>
+
+            <p class="mt-4 text-xs italic text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200/50 dark:border-slate-850/55">
+              <strong>After installing:</strong> Note that Preeti displays correctly only when the Preeti font is selected. If you need to share documents digitally or use text on websites or mobile devices, use the Preeti to Unicode converter above — Unicode works everywhere without any font.
+            </p>
+          </section>
+
+          <!-- Section 3: Preeti to Unicode / Mangal Font Converter Link -->
+          <section class="border border-slate-200/60 dark:border-slate-800/60 rounded-3xl bg-radial from-brand-50/20 via-white to-white dark:from-brand-950/10 dark:via-slate-900 dark:to-slate-900 p-6 sm:p-8 text-center">
+            <h2>Convert Preeti Text to Universal Unicode</h2>
+            <p class="text-sm leading-relaxed mb-6">
+              Need to share your Preeti documents with others or paste them online? Translate visual Preeti encoding into clean, modern Devanagari Unicode. It displays correctly on any phone or PC without needing the Preeti font.
+            </p>
+            <div class="max-w-md mx-auto">
+              <a
+                href="/preeti-to-unicode"
+                class="w-full inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-brand-500 dark:hover:border-brand-500/40 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98"
+              >
+                <span>Try the Preeti to Unicode Converter →</span>
+              </a>
+            </div>
+            <div class="max-w-md mx-auto mt-3">
+              <a
+                href="/unicode-to-preeti"
+                class="w-full inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-brand-500 dark:hover:border-brand-500/40 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:shadow-xs hover:shadow-md transition-all cursor-pointer active:scale-98"
+              >
+                <span>Unicode to Preeti Font Converter →</span>
+              </a>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- FAQ Section (Reusing FAQ component) -->
+      <FAQ items={faqs} title="Frequently Asked Questions (FAQ)" />
+
+      <!-- Related Tools -->
+      <RelatedTools currentPath="/preeti-font-download" relatedIds={['preeti-to-unicode', 'unicode-to-preeti']} />
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .download-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .download-container h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .dark .download-container h2 {
+    color: #f8fafc;
+  }
+  
+  .download-container h2::before {
+    content: "";
+    display: inline-block;
+    width: 0.375rem;
+    height: 1.25rem;
+    border-radius: 0.125rem;
+    background-color: #ea580c;
+  }
+  
+  .download-container p {
+    font-size: 0.875rem;
+    line-height: 1.625;
+    margin-bottom: 1rem;
+  }
+
+  /* Orange/branded download button */
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ea580c; /* Branded Orange 600 */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.25), 0 2px 4px -2px rgba(234, 88, 12, 0.2);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    min-height: 44px;
+  }
+  
+  .download-btn:hover {
+    background-color: #c2410c; /* Branded Orange 700 */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.35), 0 4px 6px -4px rgba(234, 88, 12, 0.3);
+  }
+  
+  .download-btn:active {
+    transform: translateY(0);
+    scale: 0.98;
+  }
+  
+  /* Clean table styling */
+  .font-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.825rem;
+    text-align: left;
+    background-color: transparent;
+  }
+  
+  .font-table th, .font-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .dark .font-table th, .dark .font-table td {
+    border-bottom: 1px solid #1e293b;
+  }
+  
+  .font-table th {
+    background-color: #f8fafc;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .dark .font-table th {
+    background-color: #0f172a;
+    color: #cbd5e1;
+  }
+  
+  .font-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .font-table tr:hover {
+    background-color: rgba(248, 250, 252, 0.5);
+  }
+  
+  .dark .font-table tr:hover {
+    background-color: rgba(30, 41, 59, 0.3);
+  }
+</style>

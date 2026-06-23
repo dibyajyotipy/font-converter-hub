@@ -1,5 +1,6 @@
 import { convertKrutidevToUnicode, convertUnicodeToKrutidev } from './krutidevConverter';
 import { convertKrutidevToChanakya, convertChanakyaToKrutidev } from './chanakyaConverter';
+import { convertPreetiToUnicode, convertUnicodeToPreeti } from './preetiConverter';
 
 export const CONVERSION_FUNCTIONS: Record<string, (text: string) => string> = {
   'krutidev-to-unicode': convertKrutidevToUnicode,
@@ -8,4 +9,6 @@ export const CONVERSION_FUNCTIONS: Record<string, (text: string) => string> = {
   'mangal-to-krutidev': convertUnicodeToKrutidev,
   'krutidev-to-chanakya': convertKrutidevToChanakya,
   'chanakya-to-krutidev': convertChanakyaToKrutidev,
+  'preeti-to-unicode': convertPreetiToUnicode,
+  'unicode-to-preeti': convertUnicodeToPreeti,
 };

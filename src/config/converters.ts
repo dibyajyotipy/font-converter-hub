@@ -37,7 +37,7 @@ export interface ConverterInfo {
   longDescription: string;
   href: string;
   slug: string;
-  direction: 'krutidev-to-unicode' | 'unicode-to-krutidev' | 'krutidev-to-mangal' | 'mangal-to-krutidev' | 'krutidev-to-chanakya' | 'chanakya-to-krutidev';
+  direction: 'krutidev-to-unicode' | 'unicode-to-krutidev' | 'krutidev-to-mangal' | 'mangal-to-krutidev' | 'krutidev-to-chanakya' | 'chanakya-to-krutidev' | 'preeti-to-unicode' | 'unicode-to-preeti';
   badge?: string;
   keywords?: string[];
   placeholders: Placeholders;
@@ -118,7 +118,7 @@ export const CONVERTERS: ConverterInfo[] = [
       },
       {
         q: 'Can I convert Unicode back to KrutiDev?',
-        a: 'Yes — use our Unicode to KrutiDev Converter for the reverse direction.'
+        a: 'Yes — use our <a href="/unicode-to-krutidev">Unicode to KrutiDev Converter</a> for the reverse direction.'
       },
       {
         q: 'Will the converted Unicode text work in MS Word, Excel, and WhatsApp?',
@@ -153,7 +153,7 @@ export const CONVERTERS: ConverterInfo[] = [
         "There's no signup, no installation, and no cost. Paste your Krutidev text, get instant Unicode output, and copy or download the result — all in a few seconds, completely free."
       ]
     },
-    relatedTools: ['unicode-to-krutidev', 'chanakya-to-unicode', 'devlys-to-unicode'],
+    relatedTools: ['unicode-to-krutidev', 'krutidev-to-mangal', 'krutidev-to-chanakya'],
     examples: {
       default: 'd`frnso gC esa vkidk Lokxr gSA',
       chips: [
@@ -232,7 +232,7 @@ export const CONVERTERS: ConverterInfo[] = [
       },
       {
         q: 'Can I convert KrutiDev back to Unicode?',
-        a: 'Yes — use our KrutiDev to Unicode Converter for the reverse direction.'
+        a: 'Yes — use our <a href="/krutidev-to-unicode">KrutiDev to Unicode Converter</a> for the reverse direction.'
       },
       {
         q: 'Will the converted text work in MS Word, Excel, and PowerPoint?',
@@ -272,7 +272,7 @@ export const CONVERTERS: ConverterInfo[] = [
         "There's no account required, no software to download, and no cost to use it. Simply paste your Unicode Hindi text, get instant Krutidev-mapped output, then copy the result or download it as a text file — ready to apply the Krutidev 010 font in Word or your document editor of choice."
       ]
     },
-    relatedTools: ['krutidev-to-unicode', 'chanakya-to-unicode', 'devlys-to-unicode'],
+    relatedTools: ['krutidev-to-unicode', 'mangal-to-krutidev', 'krutidev-to-chanakya'],
     examples: {
       default: 'कृत्तिदेव हब में आपका स्वागत है।',
       chips: [
@@ -355,7 +355,7 @@ export const CONVERTERS: ConverterInfo[] = [
       },
       {
         q: 'Can I convert Mangal back to KrutiDev?',
-        a: 'Yes, you can convert Mangal/Unicode text back to KrutiDev using the reverse converter tool at /mangal-to-krutidev-converter.'
+        a: 'Yes, you can convert Mangal/Unicode text back to KrutiDev using our <a href="/mangal-to-krutidev-converter">Mangal to KrutiDev Converter</a>.'
       },
       {
         q: 'Does this tool upload my text to a server?',
@@ -389,7 +389,7 @@ export const CONVERTERS: ConverterInfo[] = [
         "To start, simply paste your KrutiDev text in the input box, watch the converted Mangal text generate instantly, and copy or download the result for use in Microsoft Word, web browsers, or mobile apps."
       ]
     },
-    relatedTools: ['krutidev-to-unicode', 'unicode-to-krutidev', 'chanakya-to-unicode', 'devlys-to-unicode'],
+    relatedTools: ['mangal-to-krutidev', 'krutidev-to-unicode', 'unicode-to-krutidev', 'krutidev-to-chanakya'],
     examples: {
       default: 'd`frnso gC esa vkidk Lokxr gSA',
       chips: [
@@ -456,7 +456,7 @@ export const CONVERTERS: ConverterInfo[] = [
       },
       {
         q: 'Can I convert KrutiDev back to Mangal?',
-        a: 'Yes. You can use our reverse tool at /krutidev-to-mangal-converter to convert any legacy KrutiDev text back to Mangal Unicode Devanagari text.'
+        a: 'Yes. You can use our <a href="/krutidev-to-mangal-converter">KrutiDev to Mangal Converter</a> to convert any legacy KrutiDev text back to Mangal Unicode Devanagari text.'
       },
       {
         q: 'Will the converted text work in MS Word, Excel, and PowerPoint?',
@@ -486,7 +486,7 @@ export const CONVERTERS: ConverterInfo[] = [
         "As with all tools on our site, the translation is performed directly in your browser using JavaScript. None of your text is sent to our servers, assuring complete privacy and security for government work or personal files."
       ]
     },
-    relatedTools: ['krutidev-to-unicode', 'unicode-to-krutidev', 'chanakya-to-unicode', 'devlys-to-unicode'],
+    relatedTools: ['krutidev-to-mangal', 'unicode-to-krutidev', 'krutidev-to-unicode', 'chanakya-to-krutidev'],
     examples: {
       default: 'कृत्तिदेव हब में आपका स्वागत है।',
       chips: [
@@ -544,7 +544,7 @@ export const CONVERTERS: ConverterInfo[] = [
       },
       {
         q: 'Can I convert Chanakya back to KrutiDev?',
-        a: 'Yes — use our Chanakya to KrutiDev Converter for the reverse direction.'
+        a: 'Yes — use our <a href="/chanakya-to-krutidev-converter">Chanakya to KrutiDev Converter</a> for the reverse direction.'
       },
       {
         q: 'How does the converter handle mixed Hindi and English text?',
@@ -565,7 +565,7 @@ export const CONVERTERS: ConverterInfo[] = [
       ],
       type: 'brand'
     },
-    relatedTools: ['chanakya-to-krutidev', 'krutidev-to-unicode'],
+    relatedTools: ['chanakya-to-krutidev', 'krutidev-to-unicode', 'krutidev-to-mangal'],
     examples: {
       default: 'd`frnso gC esa vkidk Lokxr gSA',
       chips: [
@@ -623,7 +623,7 @@ export const CONVERTERS: ConverterInfo[] = [
       },
       {
         q: 'Can I convert KrutiDev back to Chanakya?',
-        a: 'Yes — use our KrutiDev to Chanakya Converter for the reverse direction.'
+        a: 'Yes — use our <a href="/krutidev-to-chanakya-converter">KrutiDev to Chanakya Converter</a> for the reverse direction.'
       },
       {
         q: 'How does the converter handle mixed Hindi and English text?',
@@ -644,7 +644,7 @@ export const CONVERTERS: ConverterInfo[] = [
       ],
       type: 'amber'
     },
-    relatedTools: ['krutidev-to-chanakya', 'unicode-to-krutidev'],
+    relatedTools: ['krutidev-to-chanakya', 'krutidev-to-unicode', 'unicode-to-krutidev', 'mangal-to-krutidev'],
     examples: {
       default: 'âÔßæ ×Ô¢,\nçßÖæ»æŠØÿæ ×ãôÎØ,\n\nçßáØ: ·¤æ× ·¤è ŒÚU»çÌ ·¤Ô â¢Õ¢Ï ×Ô¢Ð\n\n×ãôÎØ,\nçßÙ×÷ÚU çÙßÔÎÙ ãñ ç·¤ ã×æÚUÔ çßÖæ» ·¤æ ·¤æ× ÌÔÁè âÔ ¿Ü ÚUãæ ãñÐ',
       chips: [
@@ -659,6 +659,162 @@ export const CONVERTERS: ConverterInfo[] = [
         {
           label: 'Hindi Paragraph',
           text: 'çã¢Îè ã×æÚUè ÚUæÁÖæáæ ãñÐ Øã çßàß ·¤è âÕâÔ ßñ™ææçÙ·¤ Öæáæ¥ô¢ ×Ô¢ âÔ °·¤ ãñÐ §â·¤è çÜçÂ ÎÔßÙæ»ÚUè ãñ Áô ¥ˆØ¢Ì SÂcÅU ¥õÚU ßñ™ææçÙ·¤ ãñÐ'
+        }
+      ]
+    }
+  },
+  {
+    id: 'preeti-to-unicode',
+    name: 'Preeti to Unicode Converter',
+    shortName: 'Preeti to Unicode',
+    description: 'Convert Preeti font Nepali text to Unicode (Devanagari) online — free, instant, and browser-based.',
+    longDescription: 'Convert legacy Preeti font characters to standard Devanagari Unicode in real time. Works for Nepali documents, old DTP files, and newspaper content.',
+    href: '/preeti-to-unicode',
+    slug: 'preeti-to-unicode',
+    direction: 'preeti-to-unicode',
+    swapTarget: '/unicode-to-preeti',
+    keywords: [
+      'preeti to unicode converter',
+      'preeti to unicode nepali',
+      'preeti to unicode download',
+      'preeti to unicode converter online',
+      'preeti to unicode converter in word',
+      'how to convert preeti to unicode',
+      'how to change preeti to unicode'
+    ],
+    placeholders: {
+      input: 'यहाँ Preeti फन्टमा लेखिएको पाठ टाइप गर्नुहोस्...',
+      output: 'युनिकोड (नेपाली) मा रूपान्तरित पाठ यहाँ देखिनेछ...'
+    },
+    faq: [
+      {
+        q: 'What is Preeti font and why do I need to convert it?',
+        a: 'Preeti is a legacy ASCII-based Nepali font widely used in government offices, newspapers, and DTP workflows before Unicode became the standard. Text typed in Preeti looks like random English characters (e.g. g]kfn) without the Preeti font installed — it is not real Unicode. Converting it to Unicode Devanagari makes it readable on any device, browser, or app without needing any font installed.'
+      },
+      {
+        q: 'How do I convert Preeti to Unicode?',
+        a: 'Paste your Preeti text into the input box above and the Unicode Nepali output appears instantly. No software download, no account needed. The conversion happens entirely in your browser.'
+      },
+      {
+        q: 'How do I use Preeti to Unicode converter in Word?',
+        a: 'After converting, click the Copy button to copy the Unicode text. Open Microsoft Word, click where you want the text, and paste (Ctrl+V). The text will appear as standard Devanagari Unicode — you can use any Unicode Nepali font like Kalimati or Arial Unicode MS. You do not need the Preeti font installed.'
+      },
+      {
+        q: 'Is this Preeti to Unicode converter free?',
+        a: 'Yes, completely free. No sign-up, no download, no usage limit. The conversion runs locally in your browser — your text is never sent to any server.'
+      },
+      {
+        q: 'What is the difference between Preeti and Unicode Nepali?',
+        a: 'Preeti is an encoding hack — it uses English keyboard characters to visually mimic Nepali text using a custom font. Unicode is the actual international standard for Nepali (Devanagari) text. Unicode text works everywhere — phones, browsers, apps — without any special font. Preeti text only works on systems where the Preeti font is installed.'
+      },
+      {
+        q: 'Can this tool convert old Preeti documents with special characters?',
+        a: 'Yes. This converter handles the full Preeti character set including extended characters used in older DTP documents (conjuncts like ध्र, ङ्ग, ड्ड and special symbols). Most basic converters miss these — ours handles them correctly.'
+      }
+    ],
+    howTo: {
+      title: 'How to Convert Preeti to Unicode',
+      steps: [
+        'Paste your <strong>Preeti font text</strong> into the input box on the left',
+        'The converted <strong>Unicode Nepali</strong> text appears instantly on the right',
+        'Click <strong>Copy</strong> to copy the Unicode text, then paste it anywhere — Word, Google Docs, social media, or your website'
+      ],
+      type: 'brand'
+    },
+    relatedTools: ['unicode-to-preeti', 'krutidev-to-unicode', 'krutidev-to-mangal'],
+    examples: {
+      default: `g]kfn`,
+      chips: [
+        {
+          label: 'नेपाल',
+          text: `g]kfn`
+        },
+        {
+          label: 'Sample sentence',
+          text: `d]/f] b]z g]kfn x'g\\`
+        },
+        {
+          label: 'Conjunct test',
+          text: `lj4fgu/`
+        }
+      ]
+    }
+  },
+  {
+    id: 'unicode-to-preeti',
+    name: 'Unicode to Preeti Font Converter',
+    shortName: 'Unicode to Preeti',
+    description: 'Convert Unicode Nepali text to Preeti font encoding online. Free, instant, browser-based. Perfect for legacy Nepali DTP, newspapers, and government document workflows.',
+    longDescription: 'Convert Nepali Unicode to Preeti font encoding instantly. Designed for DTP operators, newspaper publishers, and government offices that still require Preeti-formatted text for PageMaker, InDesign, CorelDraw, and Word templates.',
+    href: '/unicode-to-preeti',
+    slug: 'unicode-to-preeti',
+    direction: 'unicode-to-preeti',
+    swapTarget: '/preeti-to-unicode',
+    keywords: [
+      'unicode to preeti font',
+      'nepali unicode to preeti',
+      'unicode to preeti font converter',
+      'unicode to preeti nepali',
+      'unicode to preeti converter online',
+      'unicode to preeti download',
+      'how to convert unicode to preeti',
+      'how to change unicode to preeti',
+      'how to convert unicode to preeti font'
+    ],
+    placeholders: {
+      input: 'यहाँ युनिकोड नेपाली पाठ टाइप वा पेस्ट गर्नुहोस्...',
+      output: 'Preeti फन्टको एनकोडिङ यहाँ देखिनेछ (उदाहरण: g]kfn)...'
+    },
+    faq: [
+      {
+        q: 'Why would I need to convert Unicode to Preeti?',
+        a: 'If you are working with legacy publishing software, older government document templates, or print layouts that use Preeti font, you need your text in Preeti encoding. Modern devices produce Unicode — this tool converts it to the format those older systems expect.'
+      },
+      {
+        q: 'How do I convert Unicode to Preeti font?',
+        a: 'Paste your standard Nepali Unicode text into the input box above. The Preeti-encoded output appears instantly on the right. Click Copy, paste into your document, and change the font to Preeti — the text will render correctly.'
+      },
+      {
+        q: 'How do I change Unicode to Preeti in Word?',
+        a: 'Convert your text using the tool above, then copy the output. In Microsoft Word, paste the text and select it. In the font dropdown, choose "Preeti" — the text will display as correct Nepali. If Preeti is not in your font list, download it free from our Preeti Font Download page.'
+      },
+      {
+        q: 'Will the converted Preeti text work in PageMaker or InDesign?',
+        a: 'Yes. The output is standard Preeti ASCII encoding compatible with any application that supports the Preeti font — including older versions of Adobe PageMaker, InDesign, CorelDraw, and Microsoft Word. Simply paste and set the font to Preeti.'
+      },
+      {
+        q: 'Is there any text that cannot be converted to Preeti?',
+        a: 'Preeti has a fixed character set designed for Nepali Devanagari text. Characters outside this set — such as Hindi-specific characters, Sanskrit conjuncts not in Nepali, or special symbols — may not have a Preeti equivalent and will be passed through unchanged.'
+      },
+      {
+        q: 'Is this Unicode to Preeti converter free?',
+        a: 'Yes, completely free with no sign-up, no download, and no usage limit. The conversion runs entirely in your browser — your text never leaves your device.'
+      }
+    ],
+    howTo: {
+      title: 'How to Convert Nepali Unicode to Preeti Font',
+      steps: [
+        'Type or paste your <strong>Unicode Nepali</strong> text into the left box.',
+        'The <strong>Preeti font</strong> encoded text appears instantly on the right.',
+        'Copy the output, paste it into your document, and set the font to <strong>Preeti</strong> — your text will display correctly.'
+      ],
+      type: 'amber'
+    },
+    relatedTools: ['preeti-to-unicode', 'krutidev-to-unicode', 'unicode-to-krutidev'],
+    examples: {
+      default: 'नेपाल',
+      chips: [
+        {
+          label: 'नेपाल',
+          text: 'नेपाल'
+        },
+        {
+          label: 'Sample sentence',
+          text: 'मेरो देश नेपाल हो'
+        },
+        {
+          label: 'Government text',
+          text: 'नेपाल सरकार'
         }
       ]
     }
