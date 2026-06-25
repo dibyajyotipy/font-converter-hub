@@ -34,6 +34,9 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "KrutiDev to Chanakya", href: "/krutidev-to-chanakya-converter" },
       { label: "Chanakya to KrutiDev", href: "/chanakya-to-krutidev-converter" },
       { divider: true },
+      { label: "DevLys to Unicode", href: "/devlys-to-unicode" },
+      { label: "Unicode to DevLys", href: "/unicode-to-devlys" },
+      { divider: true },
       { label: "KrutiDev Font Download", href: "/krutidev-font-download", isAccent: true },
       { label: "KrutiDev Keyboard Layout", href: "/krutidev-keyboard-layout", isAccent: true }
     ]

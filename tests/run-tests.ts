@@ -2,6 +2,8 @@ import { testCases } from "./krutidev-tests";
 import { convertKrutidevToUnicode, convertUnicodeToKrutidev } from "../src/utils/krutidevConverter";
 import { preetiToUnicodeTestCases, unicodeToPreetiTestCases } from "./preeti-tests";
 import { convertPreetiToUnicode, convertUnicodeToPreeti } from "../src/utils/preetiConverter";
+import { devlysToUnicodeTestCases, unicodeToDevlysTestCases } from "./devlys-tests";
+import { convertDevlysToUnicode, convertUnicodeToDevlys } from "../src/utils/devlysConverter";
 
 let passed = 0;
 
@@ -128,6 +130,50 @@ for (const test of unicodeToPreetiTestCases) {
 
 console.log(`\nResult: ${u2pPassed}/${unicodeToPreetiTestCases.length} Unicode→Preeti tests passed`);
 
+// ─── DEVLYS TESTS ────────────────────────────────────────────────────────────
+
+let devlysPassed = 0;
+console.log("\n=== DEVLYS TO UNICODE TESTS ===\n");
+
+for (const test of devlysToUnicodeTestCases) {
+  const actual = convertDevlysToUnicode(test.input);
+  const success = actual.normalize('NFC') === test.expected.normalize('NFC');
+
+  console.log(`${success ? "✅ PASS" : "❌ FAIL"} ${test.name}`);
+
+  if (!success) {
+    console.log("\nInput:", test.input);
+    console.log("Expected:", test.expected);
+    console.log("Actual:", actual);
+    console.log("\n-------------------------\n");
+  } else {
+    devlysPassed++;
+  }
+}
+
+console.log(`\nResult: ${devlysPassed}/${devlysToUnicodeTestCases.length} DevLys→Unicode tests passed`);
+
+let u2dPassed = 0;
+console.log("\n=== UNICODE TO DEVLYS TESTS ===\n");
+
+for (const test of unicodeToDevlysTestCases) {
+  const actual = convertUnicodeToDevlys(test.input);
+  const success = actual === test.expected;
+
+  console.log(`${success ? "✅ PASS" : "❌ FAIL"} ${test.name}`);
+
+  if (!success) {
+    console.log("\nInput:", test.input);
+    console.log("Expected:", test.expected);
+    console.log("Actual:", actual);
+    console.log("\n-------------------------\n");
+  } else {
+    u2dPassed++;
+  }
+}
+
+console.log(`\nResult: ${u2dPassed}/${unicodeToDevlysTestCases.length} Unicode→DevLys tests passed`);
+
 // ─── EXTENDED ASCII INVERSION REPORT ─────────────────────────────────────────
 console.log("\n=== PREETI EXTENDED ASCII INVERSION REPORT ===\n");
 
@@ -153,6 +199,11 @@ for (const k of extendedCodes) {
 console.log(`  Total one-way-only: ${oneWayCount}/${extendedCodes.length}`);
 
 process.exit(
-  (passed === testCases.length && unicodePassed === unicodeTestCases.length) ? 0 : 1
+  (passed === testCases.length && 
+   unicodePassed === unicodeTestCases.length && 
+   preetiPassed === preetiToUnicodeTestCases.length && 
+   u2pPassed === unicodeToPreetiTestCases.length &&
+   devlysPassed === devlysToUnicodeTestCases.length &&
+   u2dPassed === unicodeToDevlysTestCases.length) ? 0 : 1
 );
 

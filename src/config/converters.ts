@@ -37,7 +37,7 @@ export interface ConverterInfo {
   longDescription: string;
   href: string;
   slug: string;
-  direction: 'krutidev-to-unicode' | 'unicode-to-krutidev' | 'krutidev-to-mangal' | 'mangal-to-krutidev' | 'krutidev-to-chanakya' | 'chanakya-to-krutidev' | 'preeti-to-unicode' | 'unicode-to-preeti';
+  direction: 'krutidev-to-unicode' | 'unicode-to-krutidev' | 'krutidev-to-mangal' | 'mangal-to-krutidev' | 'krutidev-to-chanakya' | 'chanakya-to-krutidev' | 'preeti-to-unicode' | 'unicode-to-preeti' | 'devlys-to-unicode' | 'unicode-to-devlys';
   badge?: string;
   keywords?: string[];
   placeholders: Placeholders;
@@ -305,20 +305,7 @@ export const CONVERTERS: ConverterInfo[] = [
     faq: [],
     howTo: { title: '', steps: [] }
   },
-  {
-    id: 'devlys-to-unicode',
-    name: 'DevLys to Unicode Converter',
-    shortName: 'DevLys to Unicode',
-    description: 'Translate DevLys typewriter layout text to standard Devanagari Unicode.',
-    longDescription: 'Translate DevLys typewriter layout text to standard Devanagari Unicode.',
-    href: '#',
-    slug: 'devlys-to-unicode',
-    direction: 'krutidev-to-unicode',
-    badge: 'Soon',
-    placeholders: { input: '', output: '' },
-    faq: [],
-    howTo: { title: '', steps: [] }
-  },
+
   {
     id: 'krutidev-to-mangal',
     name: 'KrutiDev to Mangal Converter',
@@ -815,6 +802,148 @@ export const CONVERTERS: ConverterInfo[] = [
         {
           label: 'Government text',
           text: 'नेपाल सरकार'
+        }
+      ]
+    }
+  },
+  {
+    id: 'devlys-to-unicode',
+    name: 'DevLys to Unicode Converter',
+    shortName: 'DevLys to Unicode',
+    description: 'Convert DevLys font text to Unicode Devanagari Hindi instantly. Free, online, and browser-based.',
+    longDescription: 'Convert legacy DevLys 010 and other variants to standard Devanagari Unicode (Mangal/Arial) in real time.',
+    href: '/devlys-to-unicode',
+    slug: 'devlys-to-unicode',
+    direction: 'devlys-to-unicode',
+    swapTarget: '/unicode-to-devlys',
+    keywords: [
+      'devlys to unicode',
+      'devlys 010 to unicode',
+      'devlys converter',
+      'devlys to mangal',
+      'legacy to unicode hindi'
+    ],
+    placeholders: {
+      input: 'यहाँ DevLys फॉन्ट में लिखा हुआ पाठ पेस्ट करें...',
+      output: 'Unicode (Mangal) में परिवर्तित पाठ यहाँ दिखेगा...'
+    },
+    faq: [
+      {
+        q: 'What is DevLys font?',
+        a: 'DevLys is a legacy ASCII-based Hindi font used in DTP and print workflows. It stores Hindi text as English characters, displaying correctly only when the DevLys font is installed. Without it, text appears as random symbols like "Hkkjr" instead of "भारत".'
+      },
+      {
+        q: 'How is DevLys different from KrutiDev?',
+        a: 'Both are legacy Remington-layout fonts but have different character mappings — DevLys text fed into a KrutiDev converter produces wrong output. DevLys is preferred in design/DTP workflows while KrutiDev is more common in government and court typing.'
+      },
+      {
+        q: 'Does this support DevLys 010?',
+        a: 'Yes. DevLys 010 is the primary target and most commonly used variant. The same character mapping applies to all DevLys variants (DevLys 020, 030 etc.) since the core encoding is identical.'
+      },
+      {
+        q: 'Can I use the output in Microsoft Word?',
+        a: 'Yes. Copy the Unicode output, paste into Word, and apply any Unicode Hindi font (Mangal, Nirmala UI, Aparajita). The text will display correctly on any device without needing DevLys installed.'
+      },
+      {
+        q: 'Is this converter free?',
+        a: 'Yes, completely free. No sign-up, no install, no usage limits. Conversion runs entirely in your browser — text never leaves your device.'
+      },
+      {
+        q: 'Can it convert DevLys text with conjuncts and special characters?',
+        a: 'Yes. The engine handles ikar (ि) and reph (र्) reordering correctly, plus all conjuncts (क्ष, त्र, ज्ञ, श्र etc.) and extended characters used in older DTP documents.'
+      }
+    ],
+    howTo: {
+      title: 'How to Convert DevLys to Unicode Online',
+      steps: [
+        'Paste your DevLys font text into the input box on the left',
+        'Unicode Hindi output appears instantly on the right',
+        'Click Copy, then paste into Word, Google Docs, WhatsApp, or any website — no font needed'
+      ],
+      type: 'brand'
+    },
+    relatedTools: ['unicode-to-devlys', 'krutidev-to-unicode', 'unicode-to-krutidev'],
+    examples: {
+      default: 'Hkkjr',
+      chips: [
+        {
+          label: 'भारत',
+          text: 'Hkkjr'
+        },
+        {
+          label: 'Sample',
+          text: 'fgUnh Hkk"kk'
+        },
+        {
+          label: 'Conjunct test',
+          text: 'fo|ky;'
+        }
+      ]
+    }
+  },
+  {
+    id: 'unicode-to-devlys',
+    name: 'Unicode to DevLys Font Converter',
+    shortName: 'Unicode to DevLys',
+    description: 'Convert Unicode Devanagari Hindi text to DevLys font encoding. Free and instant.',
+    longDescription: 'Convert standard Devanagari Unicode Hindi text to DevLys 010 and other variants encoding for print and design layouts.',
+    href: '/unicode-to-devlys',
+    slug: 'unicode-to-devlys',
+    direction: 'unicode-to-devlys',
+    swapTarget: '/devlys-to-unicode',
+    keywords: [
+      'unicode to devlys',
+      'mangal to devlys 010',
+      'unicode to devlys converter',
+      'hindi unicode to devlys',
+      'coreldraw devlys typing'
+    ],
+    placeholders: {
+      input: 'यहाँ Unicode हिंदी टेक्स्ट पेस्ट या टाइप करें...',
+      output: 'DevLys फॉन्ट की एनकोडिंग यहाँ दिखेगी (उदा: Hkkjr)...'
+    },
+    faq: [
+      {
+        q: 'Why would I need to convert Unicode to DevLys?',
+        a: 'If you work in CorelDraw, Adobe Photoshop, PixelLab, or PageMaker with DevLys-based templates for wedding cards, banners, magazines, or newspapers, you need text in DevLys encoding. Modern devices produce Unicode — this tool converts it to the format those workflows expect.'
+      },
+      {
+        q: 'How do I use converted DevLys text in CorelDraw?',
+        a: 'Convert your Unicode text using the tool above, copy the output, paste into CorelDraw, and change the font to DevLys 010. The text will render correctly as Hindi.'
+      },
+      {
+        q: 'Is this the same as Mangal to DevLys conversion?',
+        a: 'Yes. Mangal is a Unicode Hindi font. Unicode to DevLys conversion works on any Unicode Hindi text regardless of which Unicode font (Mangal, Nirmala UI, Aparajita etc.) it was written in.'
+      },
+      {
+        q: 'Is it free?',
+        a: 'Yes, completely free. No sign-up, no install, runs in your browser.'
+      }
+    ],
+    howTo: {
+      title: 'How to Convert Unicode to DevLys Online',
+      steps: [
+        'Paste or type your Unicode Hindi text into the input box on the left.',
+        'The DevLys font encoded text appears instantly on the right.',
+        'Click Copy, paste it into your design or layout software, and select the DevLys font.'
+      ],
+      type: 'brand'
+    },
+    relatedTools: ['devlys-to-unicode', 'krutidev-to-unicode', 'unicode-to-krutidev'],
+    examples: {
+      default: 'भारत',
+      chips: [
+        {
+          label: 'भारत',
+          text: 'भारत'
+        },
+        {
+          label: 'हिंदी भाषा',
+          text: 'हिंदी भाषा'
+        },
+        {
+          label: 'विद्यालय',
+          text: 'विद्यालय'
         }
       ]
     }

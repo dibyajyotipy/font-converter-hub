@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Converter from '../components/Converter.astro';
+import HowToUse from '../components/HowToUse.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedTools from '../components/RelatedTools.astro';
+import { CONVERTERS } from '../config/converters';
+
+const converterInfo = CONVERTERS.find(c => c.id === 'devlys-to-unicode');
+if (!converterInfo) {
+  throw new Error("Converter configuration for ID 'devlys-to-unicode' not found in registry.");
+}
+
+const faqs = converterInfo.faq;
+
+// Generate JSON-LD schemas
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "DevLys to Unicode Converter — Free Online Hindi Tool",
+  "description": "Convert DevLys font text to Unicode Hindi instantly. Free, online, no install needed. Supports DevLys 010 and all DevLys variants. Get clean Devanagari Unicode in seconds.",
+  "url": new URL('/devlys-to-unicode/', Astro.site || 'https://fontconverterhub.com').href,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Font Converter Hub",
+    "url": "https://fontconverterhub.com",
+    "logo": "https://fontconverterhub.com/favicon.svg"
+  }
+};
+
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DevLys to Unicode Converter",
+  "description": "Convert DevLys font text to Unicode Hindi instantly. Free, online, no install needed. Supports DevLys 010 and all DevLys variants.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript.",
+  "url": new URL('/devlys-to-unicode/', Astro.site || 'https://fontconverterhub.com').href
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fontconverterhub.com/" },
+    { "@type": "ListItem", "position": 2, "name": "DevLys to Unicode Converter", "item": "https://fontconverterhub.com/devlys-to-unicode/" }
+  ]
+};
+
+const schemas = [pageSchema, appSchema, faqSchema, breadcrumbSchema];
+---
+
+<Layout
+  title="DevLys to Unicode Converter — Free Online Hindi Tool"
+  description="Convert DevLys font text to Unicode Hindi instantly. Free, online, no install needed. Supports DevLys 010 and all DevLys variants. Get clean Devanagari Unicode in seconds."
+  schema={schemas}
+>
+  <div class="pt-6 pb-16 bg-radial from-brand-50/10 via-transparent to-transparent dark:from-brand-950/5 animate-fade-in">
+    <div class="max-w-[1600px] w-[96%] mx-auto px-2 sm:px-4 lg:px-6 space-y-8">
+      
+      <!-- Converter Section (Converter first, above fold) -->
+      <Converter
+        direction="devlys-to-unicode"
+        inputPlaceholder={converterInfo.placeholders.input}
+        outputPlaceholder={converterInfo.placeholders.output}
+        swapTarget="/unicode-to-devlys"
+        examples={converterInfo.examples}
+        inputLabel="DevLys Text"
+        outputLabel="Unicode Text (Mangal)"
+      />
+
+      <!-- Compact Utility Title and Disambiguation Notice -->
+      <div class="text-left select-none max-w-5xl pl-1">
+        <h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-none">
+          DevLys to Unicode Converter
+        </h1>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+          Free DevLys to Unicode font converter — paste your DevLys 010 text and get clean Devanagari Unicode (Mangal) output instantly, online, with no software to install. DevLys is a legacy ASCII-based Hindi font used in DTP, print, and design workflows. Converting to Unicode makes your text readable on every device and website without any font required.
+        </p>
+        
+        <!-- Disambiguation Links -->
+        <div class="flex gap-2.5 flex-wrap mt-5 select-text">
+          <a
+            href="/unicode-to-devlys/"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 text-[13px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-350 dark:hover:text-slate-100 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 transition-all duration-200 active:scale-98 focus:outline-hidden focus:ring-2 focus:ring-brand-500/20 select-none no-underline"
+          >
+            <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+            Reverse: Unicode to DevLys
+          </a>
+          <a
+            href="/krutidev-to-unicode/"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 text-[13px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-350 dark:hover:text-slate-100 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 transition-all duration-200 active:scale-98 focus:outline-hidden focus:ring-2 focus:ring-brand-500/20 select-none no-underline"
+          >
+            <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            KrutiDev to Unicode
+          </a>
+          <a
+            href="/unicode-to-krutidev/"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 text-[13px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-350 dark:hover:text-slate-100 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 transition-all duration-200 active:scale-98 focus:outline-hidden focus:ring-2 focus:ring-brand-500/20 select-none no-underline"
+          >
+            <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Unicode to KrutiDev
+          </a>
+        </div>
+      </div>
+
+      <!-- How To Use (How to use second) -->
+      <HowToUse
+        title={converterInfo.howTo.title}
+        steps={converterInfo.howTo.steps}
+        type={converterInfo.howTo.type}
+      />
+
+      <!-- Custom Content Sections (Detailed Guide) -->
+      <section class="max-w-5xl mx-auto my-10 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-2xs animate-fade-in">
+        <h2 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-3.5 flex items-center gap-2 select-none tracking-tight">
+          <svg class="w-4.5 h-4.5 text-brand-500 dark:text-brand-450" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Detailed Guide: DevLys to Unicode Conversion
+        </h2>
+        <div class="text-sm text-slate-650 dark:text-slate-350 space-y-6 leading-relaxed font-normal">
+
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">What is DevLys Font?</h3>
+            <p>
+              DevLys is a legacy ASCII-based Hindi font built on the Remington typewriter keyboard layout. It maps Hindi characters to English keyboard keys, so text stored in a file is plain ASCII that only appears as Hindi when the DevLys font is active. Without the font installed, DevLys text shows as meaningless symbols like <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded text-xs">Hkkjr</code> instead of <strong>भारत</strong>.
+            </p>
+            <p class="mt-2.5">
+              DevLys 010 is the most widely used variant of the family, followed by DevLys 011, 012, and others up to DevLys 050. All variants share the same core Remington encoding, so this DevLys to Unicode font converter handles DevLys 010 as well as all DevLys 10 variants correctly.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">DevLys vs KrutiDev — What is the Difference?</h3>
+            <p>
+              Both DevLys and KrutiDev are legacy Remington-layout Hindi fonts but use <strong>different character mappings</strong>. Feeding DevLys text into a KrutiDev converter produces garbled output. DevLys is favoured in DTP, print, and graphic design workflows (wedding cards, banners, magazines) while KrutiDev 010 is more common in government offices and court typing. If you are unsure which font your document uses, try both converters and compare the output.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">Why Convert DevLys to Unicode (Mangal)?</h3>
+            <p>
+              Unicode Devanagari — used by fonts like Mangal, Nirmala UI, and Aparajita — is the international standard for Hindi text. Once you convert DevLys to Unicode Mangal, the text works everywhere without any font installed:
+            </p>
+            <ul class="list-disc pl-5 space-y-1.5 mt-2">
+              <li>Readable on mobile phones, tablets, and any web browser</li>
+              <li>Accepted by all e-governance portals and online submission systems</li>
+              <li>Fully searchable inside documents, PDFs, and web pages</li>
+              <li>Compatible with Google Docs, WhatsApp, and social media</li>
+              <li>Paste directly into Microsoft Word with any Unicode Hindi font</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">Who Uses This DevLys to Unicode Online Converter?</h3>
+            <p>
+              This tool is used by graphic designers digitising old print layouts, journalists migrating archived articles to web CMS platforms, government employees converting legacy documents for e-filing portals, and students or professionals who received DevLys-encoded files and need readable Unicode output. If your file shows garbled characters without the DevLys font installed, this free online DevLys to Unicode converter is the fastest fix.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">Supported Characters and DevLys 010 Accuracy</h3>
+            <p>
+              The engine correctly handles ikar (ि) and reph (र्) reordering — the most common source of errors in basic converters. It also supports all conjuncts (क्ष, त्र, ज्ञ, श्र), nukta characters (ड़, ढ़, फ़, ज़), Devanagari digits (० १ २ ३), and extended DevLys glyphs used in older DTP documents. All processing runs in your browser — your text never leaves your device.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Related Tools -->
+      <RelatedTools currentPath="/devlys-to-unicode" />
+
+      <!-- FAQ Section (Reusing FAQ component) -->
+      <FAQ items={faqs} />
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h3 {
+    margin-top: 1.5rem;
+  }
+</style>
